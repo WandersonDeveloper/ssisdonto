@@ -1,5 +1,5 @@
 <?php  
-
+// class responsável por inserir na base de dados 
 class Manager extends Conexao {
 
 	public function insertClient($table, $data) {
@@ -14,6 +14,7 @@ class Manager extends Conexao {
 		$statement->execute();
 	}
 
+// classe responsável por listar o dados da base 
 	public function listClient($table) {
 		$pdo = parent::get_instance();
 		$sql = "SELECT * FROM $table ORDER BY name ASC";
@@ -21,8 +22,9 @@ class Manager extends Conexao {
 		$statement->execute();
 
 		return $statement->fetchAll();
-	}
+	} 
 
+// classe responsável por deletar dados da base 
 	public function deleteClient($table, $id) {
 		$pdo = parent::get_instance();
 		$sql = "DELETE FROM $table WHERE id = :id";
@@ -31,6 +33,7 @@ class Manager extends Conexao {
 		$statement->execute();
 	}
 
+// classe responsável por buscar  dados da base de dados 
 	public function getInfo($table, $id) {
 		$pdo = parent::get_instance();
 		$sql = "SELECT * FROM $table WHERE id = :id";
@@ -40,7 +43,8 @@ class Manager extends Conexao {
 
 		return $statement->fetchAll();
 	}
-
+	
+// classe responsável por alterar dados da base de dados 
 	public function updateClient($table, $data, $id) {
 		$pdo = parent::get_instance();
 		$new_values = "";

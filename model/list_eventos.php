@@ -1,12 +1,11 @@
 <?php
-/*
- * @author Cesar Szpak - Celke - cesar@celke.com.br
- * @pagina desenvolvida usando FullCalendar,
- * o código é aberto e o uso é free,
- * porém lembre-se de conceder os créditos ao desenvolvedor.
- */
 
-include '../model/conexao.php';
+include_once '../model/Conexao.class.php';
+include_once '../model/Manager.class.php';
+
+$manager = new Manager();
+
+
 
 $query_events = "SELECT Id, Nome, Cpf, Cor, Info, Start, End FROM agendarapida";
 $resultado_events = $conn->prepare($query_events);

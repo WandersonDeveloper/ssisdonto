@@ -35,12 +35,12 @@
                   </div>
                   <br>
                   <div class="col-md-12">
-                    <input id="new-event" name="start" type="date" class="form-control" placeholder="nascimento"required>
+                    <input id="new-event" name="start" type="date" class="form-control" placeholder="data inicio"required>
                   </div>
                   <br>
 
                   <div class="col-md-12">
-                    <input id="new-event" name="end" type="time" class="form-control" placeholder=""required>
+                    <input id="new-event" name="End" type="time" class="form-control" placeholder=""required>
                   </div>
                   <br>
 
@@ -57,22 +57,7 @@
                     </div>
                     <br>
 
-                  <div class="col-md-12">
-
-                    <input class="form-control" type="color" id="cores" name="Cor" list="arcoIris" value="#0000FF">
-
-                    <datalist id="arcoIris">
-
-                    <option class="form-control" value="#FF0000">Vermelho</option>
-                    <option class="form-control" value="#FFA500">Laranja</option>
-                    <option class="form-control" value="#FFFF00">Amarelo</option>
-                    <option class="form-control" value="#008000">Verde</option>
-                    <option class="form-control" value="#0000FF">Azul</option>
-                   
-
-                    </datalist>
-
-                  </div><br>
+                  <br>
 
                     <div class="btnbtn-primary col-md-12">
                     <button class="btn btn-primary col-md-12">Add</button>
@@ -145,9 +130,11 @@
                 padding: 0;
                 font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
                 font-size: 14px;
+              
             }
 
             #calendar {
+           
                 max-width: 900px;
                 margin: 0 auto;
             }
@@ -156,7 +143,7 @@
     </head>
     <body>
 
-        <div id='calendar'></div>
+        <div  id='calendar'></div>
 
     </body>
 </html>
