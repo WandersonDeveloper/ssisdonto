@@ -1,16 +1,17 @@
 <?php
+// Metodo responsável por fazer a conxão com o vanvo e apresentar  o evento 
 
 include_once '../model/Conexao.class.php';
 include_once '../model/Manager.class.php';
 
 $manager = new Manager();
 
-
-
 $query_events = "SELECT Id, Nome, Cpf, Cor, Info, Start, End FROM agendarapida";
 $resultado_events = $conn->prepare($query_events);
 $resultado_events->execute();
 $eventos = [];
+
+// chama o evento Id nome cpf cor data e hora  
 
 while($row_events = $resultado_events->fetch(PDO::FETCH_ASSOC)){
     $id = $row_events['Id'];
