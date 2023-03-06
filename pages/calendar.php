@@ -110,9 +110,45 @@
                     plugins: ['interaction', 'dayGrid'],
                     //defaultDate: '2019-04-12',
                     editable: false,
-                    eventLimit: true,
+                    eventClick: function(events) {
+                      
+                      const swalWithBootstrapButtons = Swal.mixin({
+                              customClass: {
+                                confirmButton: 'btn btn-warning ml-5',
+                                cancelButton: 'btn btn-danger '
+                              },
+                              buttonsStyling: false
+                            })
+
+                            swalWithBootstrapButtons.fire({
+                              title: 'Paciente: ' + events.event.title,
+                              text: "Deseja editar os dados deste usuário",
+                              icon: 'warning',
+                              showCancelButton: true,
+                              confirmButtonText: 'Sim, edidar!',
+                              cancelButtonText: 'Não',
+                              reverseButtons: true
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                swalWithBootstrapButtons.fire(
+                                  'Você tem certeza?',
+                                  'Deseja alterar os dados do seu paciente? Isso afetará sua agenda!',
+                                  'question'
+                                )
+                              } else if (
+                                /* Read more about handling dismissals below */
+                                result.dismiss === Swal.DismissReason.cancel
+                              ) {
+                              
+                                  
+                                
+                              }
+                            })      
+
+                           
+                          },
                     events: './model/list_eventos.php',
-                    extraParams: function () {
+                     extraParams: function () {
                         return {
                             cachebuster: new Date().valueOf()
                         };
@@ -143,7 +179,11 @@
     </head>
     <body>
 
-        <div  id='calendar'></div>
+        <div  id='calendar'>
+
+
+
+        </div>
 
     </body>
 </html>
