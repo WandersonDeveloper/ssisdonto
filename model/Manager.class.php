@@ -17,7 +17,7 @@ class Manager extends Conexao {
 // classe responsável por listar o dados da base 
 	public function listClient($table) {
 		$pdo = parent::get_instance();
-		$sql = "SELECT * FROM $table ORDER BY name ASC";
+		$sql = "SELECT * FROM $table ORDER BY Nome ASC";
 		$statement = $pdo->query($sql);
 		$statement->execute();
 
@@ -34,15 +34,16 @@ class Manager extends Conexao {
 	}
 
 // classe responsável por buscar  dados da base de dados 
-	public function getInfo($table, $id) {
-		$pdo = parent::get_instance();
-		$sql = "SELECT * FROM $table WHERE id = :id";
-		$statement = $pdo->prepare($sql);
-		$statement->bindValue(":id", $id);
-		$statement->execute();
+public function getInfo($table, $id) {
+	$pdo = parent::get_instance();
+	$sql = "SELECT * FROM $table WHERE id = :id";
+	$statement = $pdo->prepare($sql);
+	$statement->bindValue(":id", $id);
+	$statement->execute();
 
-		return $statement->fetchAll();
-	}
+	return $statement->fetchAll();
+}
+
 	
 // classe responsável por alterar dados da base de dados 
 	public function updateClient($table, $data, $id) {

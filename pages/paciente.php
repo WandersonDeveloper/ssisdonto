@@ -132,11 +132,11 @@
 
 <form  action="" method="post">
 
-
+<!-- pesquisar -->
   <div class="  form-row">
 
         <div class="col-sm-10"> 
-          <input  style="width:100%;height: 75px; font-size: 25px;"  class="form-control" type="search"  name="cpf" placeholder="Procurar ..." autofocus required> 
+          <input  style="width:100%;height: 75px; font-size: 25px;"  class="form-control" type="search"  name="cpf" placeholder="Procurar ..." autofocus > 
 
         </div>
         <div class="col-sm-2">
@@ -148,37 +148,60 @@
 <div class="card col-md-12">
   <br>
 
-  
-<table id="buscacliente" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011-04-25</td>
-            <td>$320,800</td>
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011-07-25</td>
-            <td>$170,750</td>
-        </tr>
-    </tbody>
-</table>
+  <div class="table-responsive">
+		<table class="table table-hover">
+			<thead class="thead">
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Cpf</th>
+					<th>Telefone</th>
+					<th>DT. De agendamento</th>
+					<th>Hora. Consulta</th>
+					<th>Info</th>
+					<th colspan="3">AÇÕES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($manager->listClient("agendarapida") as $client): ?>
+				<tr>
+					<td><?php echo $client['id']; ?></td>
+					<td><?php echo $client['Nome']; ?></td>
+					<td><?php echo $client['CPF']; ?></td>
+					<td><?php echo $client['Telefone']; ?></td>
+					<td><?php echo $client['start']; ?></td>
+					<td><?php echo $client['End']; ?></td>
+					<td><?php echo $client['Info']; ?></td>
+					<td>
+						<form method="POST" action="../view/page_update.php">
+							
+							<input type="hidden" name="id" value="<?=$client['id']?>">
+
+							<button class="btn btn-warning btn-xs">
+								<i class="fa fa-user-edit"></i>
+							</button>
+
+						</form>
+					</td>
+					<td>
+						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
+							
+							<input type="hidden" name="id" value="<?=$client['id']?>">
+
+							<button class="btn btn-danger btn-xs">
+								<i class="fa fa-trash"></i>
+							</button>
+
+						</form>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
 
 </div>
 

@@ -10,7 +10,7 @@ $data = $_POST;
 if(isset($data) && !empty($data)) {
 	$manager->insertClient("agendarapida",$data);
 	
-	header("Location: ../index.php?client_add_success");
+	// header("Location: ../index.php?client_add_success");
 }
 
 ?>

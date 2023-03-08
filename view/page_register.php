@@ -1,4 +1,7 @@
-<?php include_once 'dependencias.php'; ?>
+<?php 
+include_once '../model/Conexao.class.php';
+include_once '../model/Manager.class.php';
+include_once '../dependencias.php'; ?>
 
 <h2 class="text-center">
 	Page of Register <i class="fa fa-user-plus"></i>

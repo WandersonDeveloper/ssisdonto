@@ -11,12 +11,12 @@
             </div>
           </div>
           <!-- Inicio do cadastro rapido do paciente  -->
-          <div class="card">
+          <div style="margin-top: -35px; width: 100%;" class="card">
             <div class="card-header">
               <h3 class="card-title">Agendar Paciente</h3>
             </div>
-            <div class="card-body">
-              <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+            <div  class="card-body">
+              <div class="btn-group" style="width: 100%; ">
 
               </div>
 

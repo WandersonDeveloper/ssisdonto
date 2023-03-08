@@ -6,14 +6,14 @@ include_once '../model/Manager.class.php';
 
 $manager = new Manager();
 
-$query_events = "SELECT Id, Nome, Cpf, Cor, Telefone, Start, End FROM agendarapida";
+$query_events = "SELECT id, Nome, Cpf, Cor, Telefone, Start, End FROM agendarapida";
 $resultado_events = $conn->prepare($query_events);
 $resultado_events->execute();
 $eventos = [];
 
 // chama o evento Id nome cpf cor data e hora  
 while($row_events = $resultado_events->fetch(PDO::FETCH_ASSOC)){
-    $id = $row_events['Id'];
+    $id = $row_events['id'];
     $Nome = $row_events['Nome'];
     $telefone = $row_events['Telefone'];
     $cpf = $row_events['Cpf'];

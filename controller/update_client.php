@@ -9,9 +9,9 @@ $update_client = $_POST;
 $id = $_POST['id'];
 
 if(isset($id) && !empty($id)) {
-	$manager->updateClient("registros", $update_client, $id);
-
-	header("Location: ../index.php?client_update");
+	$manager->updateClient("sgmagenda", $update_client, $id);
+	
+	// header("Location: ../index.php?client_update");
 }
 
 ?>

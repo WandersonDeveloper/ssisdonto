@@ -47,7 +47,14 @@
 <link rel="stylesheet" href="./plugins/fullcalendar-bootstrap/main.min.css">
 <link rel="stylesheet" href="./dist/css/adminlte.min.css">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<!-- Fontawesome 5 -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+<!-- GoogleFonts - OpenSans -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
    <script src="../plugins/fullcalendar/locales/pt-br.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
