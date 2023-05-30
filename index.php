@@ -50,8 +50,8 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
                        
                         <div class="card text-left">
                             <br>
-                         <center>  <img src="dist/img/asdasd.jpg" width="300px" alt=""></center><br>
-                         <h5 class="text-center mb-12">Faça seu Login</h5>
+                         <center>  <img src="dist/img/asdasd.jpg" width="300px" alt=""></center><br><br>
+                         <h6 class="text-center mb-12">Entre no Sistema</h6>
                     
                         <div class="card-body ">
                             
@@ -60,14 +60,14 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
                     <form class="login100-form validate-form" method="post" action="pages/autenticar.php">
                         <div class="wrap-input100 validate-input">
                             <span class="label-input100">Usuário</span><br>
-                            <input class="input100 col-md-12" type="text" name="username" id="username"
+                            <input class="input100 col-md-12 form-control" type="text" name="username" id="username"
                             placeholder="Insira seu Email" required>
                             <span class="focus-input100"></span>
                         </div>
                             <br>
                         <div class="wrap-input100 validate-input">
                             <span class="label-input100">Senha</span><br>
-                            <input class="input100 col-md-12" type="password" id="pass" name="pass" placeholder="Insira sua Senha" required>
+                            <input class="input100 col-md-12 form-control" type="password" id="pass" name="pass" placeholder="Insira sua Senha" required>
                             <span class="focus-input100 password"></span>
                         </div>
                             <br>
@@ -76,7 +76,7 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
                         <div class="">
                             <div class="">
                                 <button class="btn btn-primary col-md-12">
-                                    Logar
+                                    Entrar
                                 </button>
                             </div>
                         </div>

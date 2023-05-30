@@ -15,12 +15,17 @@
 					<th>Cor</th>
 					<th>Chassi</th>
           			<th>Emplacada</th>
-					<th> venda</th>
+					<th>venda</th>
           			<th>Vendedor</th>
-					<th colspan="3">AÇÕES</th>
+					<th colspan="2">Ações</th>
+					
 				</tr>
 			</thead>
 			<tbody>
+
+				<!-- fazer comparação se existir Status_entrega  então não exiba  na lista de entrega  -->
+
+
 				<?php foreach($manager->listClient("agendarapida") as $client): ?>
 				<tr>
 
@@ -45,27 +50,48 @@
           			<td><?php echo $client['Tipo_venda']; ?></td>
 					<td><?php echo $client['Vendedor']; ?></td>
 					<td>
+						
+					<td>
+						<!-- Btn Entregue  -->
+						<form method="POST" action="controller/insert_status.php">
+
+								<input type="" name="id" hidden value="<?=$client['ID']?>">
+
+							<div class="col-md-12">
+								<input id="new-event"name="Status_entrega" type="text" value="SIM"hidden class="form-control" placeholder="Status_entrega" >
+							</div>
+
+							<button class="btn btn-success btn-xd">
+								<i class="fa fa-thumbs-up"></i>
+							</button>
+
+					   </form>
+					</td>
+					<td>
+					<!-- Btn Alterar -->
 						<form method="POST" action="view/page_update.php">
 							
 							<input type="hidden" name="id" value="<?=$client['ID']?>">
 
-							<button class="btn btn-warning btn-xs">
+							<button class="btn btn-warning btn-xd">
 								<i class="fa fa-user-edit"></i>
 							</button>
 
 						</form>
 					</td>
 					<td>
+						<!-- btn excluir -->
 						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
 							
 							<input type="hidden" name="id" value="<?=$client['ID']?>">
 
-							<button class="btn btn-danger btn-xs">
+							<button class="btn btn-danger btn-xd">
 								<i class="fa fa-trash"></i>
 							</button>
 
 						</form>
-					</td>
+				</td>
+					
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
