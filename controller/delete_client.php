@@ -10,7 +10,7 @@ $id = $_POST['id'];
 if(isset($id) && !empty($id)) {
 	$manager->deleteClient("agendarapida", $id);
 
-	header("Location: ../index.php?client_deleted");
+	header("Location: ../principal.php?acao=pages/lista_de_espera");
 }
 
 ?>

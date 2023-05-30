@@ -9,9 +9,9 @@ $update_client = $_POST;
 $id = $_POST['id'];
 
 if(isset($id) && !empty($id)) {
-	$manager->updateClient("sgmagenda", $update_client, $id);
+	$manager->updateClient("agendarapida", $update_client, $id);
 	
-	// header("Location: ../index.php?client_update");
+	header("Location: ../principal.php?acao=pages/lista_de_espera");
 }
 
 ?>

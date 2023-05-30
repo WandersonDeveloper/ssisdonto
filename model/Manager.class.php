@@ -17,7 +17,7 @@ class Manager extends Conexao {
 // classe responsável por listar o dados da base 
 	public function listClient($table) {
 		$pdo = parent::get_instance();
-		$sql = "SELECT * FROM $table ORDER BY Nome ASC";
+		$sql = "SELECT * FROM $table ORDER BY start ";
 		$statement = $pdo->query($sql);
 		$statement->execute();
 
@@ -53,7 +53,7 @@ public function getInfo($table, $id) {
 			$new_values .= "$key=:$key, ";
 		}
 		$new_values = substr($new_values, 0, -2);
-		$sql = "UPDATE $table SET $new_values WHERE id = :id";
+		$sql = "UPDATE $table SET $new_values WHERE ID = :id";
 		$statement = $pdo->prepare($sql);
 		foreach($data as $key => $value) {
 			$statement->bindValue(":$key", $value, PDO::PARAM_STR);

@@ -1,283 +1,362 @@
 <?php 
-@session_start();
-include_once 'dependencias.php';
 
-//ESTRUTURA DO MENU
-$item1 = 'pages/calendar';
-$item2 = 'pages/paciente';
-$item3 = 'pages/financeiro';
+include_once("model/Conexao.class.php");
+include_once("dependencias.php");
 
-
-//CLASSE PARA OS ITENS ATIVOS
-if(@$_GET['acao'] == $item1){
-          $item1ativo = 'active';
-        }else if(@$_GET['acao'] == $item2){
-          $item2ativo = 'active';
-        }else if(@$_GET['acao'] == $item3){
-          $item3ativo = 'active';
-        }
-
-        
+if(isset($_POST['email2']) and $_POST['email2'] != ''){
+    $email_rec = $_POST['email2'];
+}
  ?>
 
+<head>
+    <title></title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="description" content="Lanches BH, Lanches em Venda Nova, Comprar Sanduíche Venda Nova ">
+    <meta name="author" content="Hugo Vasconcelos">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/login.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="icon" href="images/favicon-nova.ico" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
 
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.php?acao=<?php echo $item1 ?>" class="nav-link <?php echo $item1ativo ?>">Agenda</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.php?acao=<?php echo $item2 ?>"
-                        class="nav-link <?php echo $item2ativo ?>">Paciente</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.php?acao=<?php echo $item3 ?>"
-                        class="nav-link <?php echo $item3ativo ?>">Financeiro</a>
-                </li>
-            </ul>
+<!------ Include the above in your HEAD tag ---------->
 
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
+<!-- login start -->
 
-                <!-- Notifications Dropdown Menu -->
-            </ul>
-        </nav>
-        <!-- /.navbar -->
 
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="#" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: 0.8">
-                <span class="brand-text font-weight-light">Nome do sistema</span>
-            </a>
+<div class="container">
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+    <section class="login-blockcol-md-12">
+        <div class="container">
+            <div class="row">
+
+                <div class=" col-md-12 login-sec" style="margin-top:9% ;"><br>
+                       
+                        <div class="card text-left">
+                            <br>
+                         <center>  <img src="dist/img/asdasd.jpg" width="300px" alt=""></center><br>
+                         <h5 class="text-center mb-12">Faça seu Login</h5>
+                    
+                        <div class="card-body ">
+                            
+                    
+                    
+                    <form class="login100-form validate-form" method="post" action="pages/autenticar.php">
+                        <div class="wrap-input100 validate-input">
+                            <span class="label-input100">Usuário</span><br>
+                            <input class="input100 col-md-12" type="text" name="username" id="username"
+                            placeholder="Insira seu Email" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                            <br>
+                        <div class="wrap-input100 validate-input">
+                            <span class="label-input100">Senha</span><br>
+                            <input class="input100 col-md-12" type="password" id="pass" name="pass" placeholder="Insira sua Senha" required>
+                            <span class="focus-input100 password"></span>
+                        </div>
+                            <br>
+
+
+                        <div class="">
+                            <div class="">
+                                <button class="btn btn-primary col-md-12">
+                                    Logar
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                    <!-- <div class="copy-text">Não tem Cadastro?
+
+                        <a class="text-primary" href="" data-toggle="modal" data-target="#modal-login">Cadastre-se</a>
+                    </div> -->
+
+                    <!-- <div class="text-center p-t-8 p-b-31">
+                        <a class="text-danger" href="" data-toggle="modal" data-target="#modal-rec">
+                           <small> Recuperar Senha? </small>
+                       </a>
+                   </div> -->
+
+
+               </div>
+               
+
+                        </div>
                     </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Nome da clínica </a>
-                    </div>
-                </div>
-
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <iconify-icon class="align-content-center" icon="bi:calendar-date" style="color: white;"
-                            width="32" height="32"></iconify-icon>
-                    </div>
-
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="index.php?acao=<?php echo $item1 ?>"
-                            class="nav-link <?php echo $item1ativo ?>">Agenda</a>
-                    </li>
-
-
-                </div>
-
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <iconify-icon class="align-content-center" icon="bi:person-bounding-box" style="color: white;"
-                            width="32" height="32"></iconify-icon>
-                    </div>
-
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="index.php?acao=<?php echo $item2 ?>"
-                            class="nav-link <?php echo $item2ativo ?>">Paciente</a>
-                    </li>
-
-
-                </div>
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <iconify-icon icon="healthicons:finance-dept-outline" style="color: white;" width="32"
-                            height="32"></iconify-icon>
-
-                    </div>
-
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="index.php?acao=<?php echo $item3 ?>"
-                            class="nav-link <?php echo $item3ativo ?>">Financeiro</a>
-                    </li>
-
-
                 </div>
 
             </div>
-            <!-- /.sidebar -->
-        </aside>
-        <!-- inclui a agenda no painel  -->
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-
-                <div class="container-fluid">
-
-                </div><!-- /.container-fluid -->
-
-                <!-- /.Chamadas dos Includes das páginas -->
-                <?php 
-        if(@$_GET['acao'] == $item1){
-          include_once($item1.'.php');
-        }else if(@$_GET['acao'] == $item2){
-          include_once($item2.'.php');
-        }else if(@$_GET['acao'] == $item3){
-          include_once($item3.'.php');
-        }
-
-
-        else{
-          include_once($item1.'.php');
-        }
-        ?>
-
-            </div>
-
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
         </div>
-        <!-- ./wrapper -->
 
-        <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
-        $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <!-- Bootstrap 4 -->
-        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- ChartJS -->
-        <script src="plugins/chart.js/Chart.min.js"></script>
-        <!-- Sparkline -->
-        <script src="plugins/sparklines/sparkline.js"></script>
-        <!-- JQVMap -->
-        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-        <!-- daterangepicker -->
-        <script src="plugins/moment/moment.min.js"></script>
-        <script src="plugins/daterangepicker/daterangepicker.js"></script>
-        <!-- Tempusdominus Bootstrap 4 -->
-        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <!-- Summernote -->
-        <script src="plugins/summernote/summernote-bs4.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.js"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="dist/js/pages/dashboard.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="dist/js/demo.js"></script>
-        <!-- para icones  -->
-        <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+    </div>
+    <p class="d-flex justify-content-center" style="font-size: 10px; "> Desenvolvido por By Wanderson Felipe de Oliveira </p>
+</section>
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<!-- login end -->
 
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#cpf").mask("000.000.000-00");
-            $("#buscacpf").mask("000.000.000-00");
-            $("#phone").mask("(00) 0000-0000");
-        });
-        </script>
-
-
-        <!-- Adicionando Javascript -->
-        <script>
-        function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value = ("");
-            document.getElementById('bairro').value = ("");
-            document.getElementById('cidade').value = ("");
-            document.getElementById('uf').value = ("");
-            document.getElementById('ibge').value = ("");
-        }
-
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value = (conteudo.logradouro);
-                document.getElementById('bairro').value = (conteudo.bairro);
-                document.getElementById('cidade').value = (conteudo.localidade);
-                document.getElementById('uf').value = (conteudo.uf);
-                document.getElementById('ibge').value = (conteudo.ibge);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
-            }
-        }
-
-        function pesquisacep(valor) {
-
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('uf').value = "...";
-                    document.getElementById('ibge').value = "...";
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
-        </script>
+</div>
+                        </div>
+                        </div>
+                
 
 </body>
 
-</html>
+
+
+
+
+
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastre-se</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form method="post">
+        <div class="form-group">
+            <label class="text-dark" for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome e Sobrenome" required>
+
+        </div>
+
+        <div class="row">
+         <div class="col-md-6">
+             <div class="form-group">
+                <label class="text-dark" for="exampleInputEmail1">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" required>
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+         <div class="form-group">
+            <label class="text-dark" for="exampleInputEmail1">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <label class="text-dark" for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required value="<?php echo @$email_rec ?>">
+
+</div>
+
+
+
+
+<div class="form-group">
+    <label class="text-dark" for="exampleInputEmail1">Senha</label>
+    <input type="text" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+
+</div>
+
+
+<div align="center" class="" id="mensagem">
+</div>
+
+
+</div>
+<div class="modal-footer">
+   <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+   <button name="btn-cadastro" id="btn-cadastro" class="btn btn-info">Cadastrar</button>
+
+   </form>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="modal-rec" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Recuperar Senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form method="post">
+       
+
+
+<div class="form-group">
+    <label class="text-dark" for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="email-recuperar" name="email-recuperar" placeholder="Email" required>
+
+</div>
+
+
+</div>
+
+
+</div>
+<div class="modal-footer">
+   <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+   <button name="btn-rec" id="btn-rec" class="btn btn-info">Recuperar</button>
+
+   </form>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<?php 
+
+if(isset($_POST['email2']) and $_POST['email2'] != ''){
+
+ ?>
+
+ <script> $("#modal-login").modal("show"); </script> 
+
+<?php } ?>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script src="js/mascaras.js"></script>
+
+
+
+
+<!--AJAX PARA INSERÇÃO DOS DADOS -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        $('#btn-cadastro').click(function(event){
+            event.preventDefault();
+            
+            $.ajax({
+                url: "cadastrar-usuario.php",
+                method: "post",
+                data: $('form').serialize(),
+                dataType: "text",
+                success: function(mensagem){
+
+                    $('#mensagem').removeClass()
+
+                    if(mensagem == 'Cadastrado com Sucesso!!'){
+                        
+                        $('#mensagem').addClass('text-success')
+
+                        document.getElementById('username').value = document.getElementById('email').value;
+
+                        document.getElementById('pass').value = document.getElementById('senha').value;
+
+                        $('#nome').val('')
+                        $('#telefone').val('')
+                        $('#cpf').val('')
+                        $('#email').val('')
+                        $('#senha').val('')
+
+                        //$('#btn-fechar').click();
+                        //location.reload();
+
+
+
+            
+           
+
+                    }else{
+                        
+                        $('#mensagem').addClass('text-danger')
+                    }
+                    
+                    $('#mensagem').text(mensagem)
+
+                },
+                
+            })
+        })
+    })
+</script>
+
+
+
+
+
+<!--AJAX PARA RECUPERAR A SENHA -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        $('#btn-rec').click(function(event){
+            event.preventDefault();
+            
+            $.ajax({
+                url: "recuperar.php",
+                method: "post",
+                data: $('form').serialize(),
+                dataType: "text",
+                success: function(mensagem){
+
+                    $('#mensagem2').removeClass()
+
+                    if(mensagem == 'Senha enviada para o seu Email!'){
+                        
+                        $('#mensagem2').addClass('text-success')
+
+                        document.getElementById('username').value = document.getElementById('email-recuperar').value;
+
+                       
+                        $('#email-recuperar').val('')
+                        
+
+                        //$('#btn-fechar').click();
+                        //location.reload();
+
+
+
+                    }else{
+                        
+                        $('#mensagem2').addClass('text-danger')
+                    }
+                    
+                    $('#mensagem2').text(mensagem)
+
+                },
+                
+            })
+        })
+    })
+</script>

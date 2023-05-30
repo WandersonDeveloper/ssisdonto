@@ -6,29 +6,26 @@ include_once '../model/Manager.class.php';
 
 $manager = new Manager();
 
-$query_events = "SELECT id, Nome, Cpf, Cor, Telefone, Start, End FROM agendarapida";
+$query_events = "SELECT ID, Nome, Modelo, Cor, Chassi,  start  FROM agendarapida";
 $resultado_events = $conn->prepare($query_events);
 $resultado_events->execute();
 $eventos = [];
 
-// chama o evento Id nome cpf cor data e hora  
+// chama o evento 
 while($row_events = $resultado_events->fetch(PDO::FETCH_ASSOC)){
-    $id = $row_events['id'];
-    $Nome = $row_events['Nome'];
-    $telefone = $row_events['Telefone'];
-    $cpf = $row_events['Cpf'];
-    $color = $row_events['Cor'];
-    $start = $row_events['Start'];
-    $end = $row_events['End'];
+
+    $id     =  $row_events['ID'];
+    $title  =  $row_events['Nome'];
+    $start  =  $row_events['start'];
+   
     
     $eventos[] = [
-        'id' => $id, 
-        'title' => $Nome,
-        'Telefone' => $telefone,
-        'cpf' => $cpf, 
-        'color' => $color, 
-        'start' => $start, 
-        'end' => $end, 
+        
+        'ID'    =>      $id, 
+        'title' =>      $title,
+        'start' =>      $start, 
+       
+
         ];
 }
 
