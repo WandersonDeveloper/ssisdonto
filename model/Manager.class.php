@@ -14,10 +14,6 @@ class Manager extends Conexao {
 		$statement->execute();
 	}
 
-
-
-	
-
 // classe responsável por listar o dados da base 
 	public function listClient($table) {
 		$pdo = parent::get_instance();

@@ -14,6 +14,7 @@ if(isset($id) && !empty($id)) {
 	$manager->updateClient("agendarapida", $update_client, $id);
 
 	   header("Location: ../principal.php?acao=pages/lista_de_espera");
+
 }
 
 ?>

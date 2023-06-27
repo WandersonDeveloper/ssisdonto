@@ -41,11 +41,11 @@ $id = $_POST['id'];
 		</div>
 	
 		<div class="col-md-2" >
-	 É EMPLACADA ?: <i class="fa fa-motorcycle"></i>
+	 É EMPLACADA ?: <?=$client_info['Emplacada']?>   <i class="fa fa-motorcycle"></i>
                     <select class="form-control" name="Emplacada" id="">
 
-                       <option value="<?=$client_info['Emplacada']?>">Sim</option>
-                       <option value="<?=$client_info['Emplacada']?>">Não</option>
+                       <option name="Emplacada" <?=$client_info['Emplacada']?>value=" Sim">SIM </option>
+                       <option name="Emplacada"<?=$client_info['Emplacada']?> value="Não"> NÂO</option>
 
                     </select>
         </div>
