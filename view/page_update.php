@@ -8,7 +8,7 @@ $manager = new Manager();
 $id = $_POST['id'];
 
 ?>
-
+<br><br>
 <h2 class="text-center">
 	ALTERAR DADOS DA MOTOCICLETA  <i class="fa fa-motorcycle"></i>
 </h2><hr>
@@ -16,16 +16,19 @@ $id = $_POST['id'];
 <form method="POST" action="../controller/update_client.php">
 	
 <div class="container">
-	<div class="form-row">
+<div class="card">
+	<div class="card-body">
+	<div  class="form-row ">
 		
 		<?php foreach($manager->getInfo("agendarapida", $id) as $client_info): ?>
+		
 
-		<div class="col-md-6">
+		<div class="col-md-4">
 			Nome: <i class="fa fa-user"></i>
 			<input class="form-control" type="text" name="Nome" required autofocus value="<?=$client_info['Nome']?>"><br>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-4">
 		Modelo: <i class="fa fa-motorcycle"></i>
 			<input class="form-control" type="text" name="Modelo" required value="<?=$client_info['Modelo']?>"><br>
 		</div>
@@ -40,8 +43,8 @@ $id = $_POST['id'];
 			<input class="form-control" type="text" id="Chassi" name="Chassi" required value="<?=$client_info['Chassi']?>"><br>
 		</div>
 	
-		<div class="col-md-2" >
-	 É EMPLACADA ?: <?=$client_info['Emplacada']?>   <i class="fa fa-motorcycle"></i>
+		<div class="col-md-4" >
+	 É EMPLACADA ?:<b style="color: red;"> <?=$client_info['Emplacada']?></b>   
                     <select class="form-control" name="Emplacada" id="">
 
                        <option name="Emplacada" <?=$client_info['Emplacada']?>value=" Sim">SIM </option>
@@ -51,7 +54,7 @@ $id = $_POST['id'];
         </div>
                   
 
-		<div class="col-md-2">
+		<div class="col-md-4">
 			Data e hora  <i class="fa fa-calendar"></i>
 			<input class="form-control" type="datetime-local" name="start" required value="<?=$client_info['start']; ?>"><br>
 		</div>
@@ -66,11 +69,11 @@ $id = $_POST['id'];
 
 			<button class="btn btn-warning btn-lg">
 				
-				Update Client <i class="fa fa-user-edit"></i>
+				Alterar dados <i class="fa fa-user-edit"></i>
 
 			</button><br><br>
 
-			<a href="../principal.php?acao=pages/lista_de_espera">
+			<a class="btn btn-danger "  href="../principal.php?acao=pages/lista_de_espera">
 				Voltar
 			</a>
 
@@ -78,7 +81,8 @@ $id = $_POST['id'];
 
 	</div>
 </div>
-
+</div>
+</div>
 </form>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>

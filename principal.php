@@ -100,7 +100,7 @@ if(@$_GET['acao'] == $item1){
                             width="32" height="32" ></iconify-icon>
                     </div>
 
-                    <a class="nav-item " >
+                    <a class="nav-item d-sm-inline-block " >
                         <a href="principal.php?acao=<?php echo $item1 ?>"
                             class="nav-link <?php echo $item1ativo ?>">Agendar</a>
                         </a>

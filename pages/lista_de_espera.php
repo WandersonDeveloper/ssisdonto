@@ -1,40 +1,51 @@
 <!-- modal para cadastrar novo cliente  -->
-<link rel="stylesheet" type="text/css" href="desabilita.css">
+
 <?php @session_start(); ?>
 
 <div class="card col-md-12">
-  <br>
-
-  <div class="table-responsive">
+	<div  class="table-responsive">
 		<table id="lista" class="table table-hover">
 			<thead class="thead">
-				<tr>  
+				<tr >  
           			<th>Data entrega</th>
 					<th>Nome</th>
 					<th>Modelo</th>
 					<th>Cor</th>
 					<th>Chassi</th>
           			<th>Emplacada</th>
-					<th>venda</th>
-          			<th>Vendedor</th>
-					<th>Entrega</th>
+					<th>Venda</th>
+          			<th>Vendedor</th>		
 					<th colspan="2">Ações</th>
 					
 					
 				</tr>
 			</thead>
 			<tbody>
+  <br>
+<?php foreach($manager->listClient("agendarapida") as $client): 
+	
+	if ($client['Status_entrega']  == "SIM") {
+		// Caso seja igual, a linha será ocultada
+		$estiloDisplay = "hidden" ;
+	} else {
+		// Caso contrário, a linha será exibida normalmente
+		$estiloDisplay = "";
+		
+	} ?>
+	
 
-				<!-- fazer comparação se existir Status_entrega  então não exiba  na lista de entrega  -->
 
 
-				<?php foreach($manager->listClient("agendarapida") as $client): ?>
-				<tr>
+				
+
+
+				
+				<tr <?php echo $estiloDisplay;?>>
 
         
           <td hidden><?php 
           echo $client['ID']; ?></td>
-        <td> 
+        <td <?php echo $estiloDisplay;?> > 
               <?php  
                   $a = strtotime($client['start']);
                   $b = date('d/m/Y  H:i:s', $a);
@@ -44,18 +55,18 @@
           
   		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		</td>
-        			<td><?php echo $client['Nome']; ?></td>
-					<td><?php echo $client['Modelo']; ?></td>
-         		    <td><?php echo $client['Cor']; ?></td>
-					<td><?php echo $client['Chassi']; ?></td>
-         			<td><?php echo $client['Emplacada']; ?></td>
-          			<td><?php echo $client['Tipo_venda']; ?></td>
-					<td><?php echo $client['Vendedor']; ?></td>
-					<td><?php echo $client['Status_entrega']; ?></td>
+        			<td <?php echo $estiloDisplay;?> ><?php echo $client['Nome']; ?></td>
+					<td <?php echo $estiloDisplay;?> ><?php echo $client['Modelo']; ?></td>
+         		    <td <?php echo $estiloDisplay;?> ><?php echo $client['Cor']; ?></td>
+					<td <?php echo $estiloDisplay;?> ><?php echo $client['Chassi']; ?></td>
+         			<td <?php echo $estiloDisplay;?> ><?php echo $client['Emplacada']; ?></td>
+          			<td <?php echo $estiloDisplay;?> ><?php echo $client['Tipo_venda']; ?></td>
+					<td <?php echo $estiloDisplay;?> ><?php echo $client['Vendedor']; ?></td>
+					
 					<td>
 						
 
-						<td>
+						<td <?php echo $estiloDisplay;?> >
 						<form method="POST" action="controller/insert_status.php" >
 							<input type="text" hidden name="id" value="<?=$client['ID']?>">
 							<div class="col-md-12">
@@ -67,8 +78,8 @@
 
 					   </form>
 
-					</td>
-					<td>
+					</td >
+					<td <?php echo $estiloDisplay;?> >
 					<!-- Btn Alterar -->
 						<form method="POST" action="view/page_update.php">
 							
@@ -80,7 +91,7 @@
 
 						</form>
 					</td>
-					<td>
+					<td <?php echo $estiloDisplay;?> >
 						<!-- btn excluir -->
 						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
 							
@@ -125,42 +136,3 @@
 
 
 
-<script>
-
-	function evento(){
-	const swalWithBootstrapButtons = Swal.mixin({
-  customClass: {
-    confirmButton: 'btn btn-success',
-    cancelButton: 'btn btn-danger'
-  },
-  buttonsStyling: false
-})
-
-swalWithBootstrapButtons.fire({
-  title: 'Deseja confirmar a entrega?',
-  text: "Para confirmar click no botão sim, desejo!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonText: 'SIM, Desejo Realizar a entrega! ',
-  cancelButtonText: 'Não, Cancelar ',
-  reverseButtons: true
-}).then((result) => {
-  if (result.isConfirmed) {
-    swalWithBootstrapButtons.fire(
-      'Confirmado!',
-      'Seus dados foram salvos e sua moto entregue parabéns',
-      'success'
-    )
-  } else if (
-    /* Read more about handling dismissals below */
-    result.dismiss === Swal.DismissReason.cancel
-  ) {
-    swalWithBootstrapButtons.fire(
-      'Cancelado',
-      'suas ações foram canceladas :)',
-      'error'
-    )
-  }
-})
-	}
-</script>
