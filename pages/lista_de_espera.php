@@ -71,6 +71,9 @@
 						<form method="POST" action="controller/insert_status.php" >
 							<input type="text" hidden name="id" value="<?=$client['ID']?>">
 							<div class="col-md-12">
+							  <input hidden type="datetime"   name="DT_alteracao"  value="<?php  date_default_timezone_set('America/Sao_Paulo');$date = date('Y-m-d H:i');echo $date; ?>" class="form-control">
+							</div>
+							<div class="col-md-12">
 
 							  <input type="text" hidden  name="Status_entrega" value="SIM" class="form-control" placeholder="Status_entrega">
 							</div>
@@ -101,7 +104,10 @@
 						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
 							
 							<input type="hidden" name="id" value="<?=$client['ID']?>">
-							
+							<div class="col-md-12">
+
+							  <input hidden type="datetime"   name="DT_alteracao"  value="<?php  date_default_timezone_set('America/Cuiaba');$date = date('Y-m-d H:i');echo $date; ?>" class="form-control">
+							</div>
 							<div class="col-md-12">
 							  <input type="text" hidden  name="Excluido" value="SIM" class="form-control" >
 							</div>

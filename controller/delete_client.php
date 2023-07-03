@@ -16,7 +16,7 @@ if(isset($id) && !empty($id)) {
 	$manager->deleteClient("agendarapida", $id);
 	
 
-	header("Location: ../principal.php?acao=pages/lista_de_espera");
+	header("Location: ../principal.php?client_add_success");
 }
 
 ?>
