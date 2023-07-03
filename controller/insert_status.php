@@ -13,8 +13,12 @@ if(isset($id) && !empty($id)) {
 
 	$manager->updateClient("agendarapida", $update_client, $id);
 
-	   header("Location: ../principal.php?acao=pages/lista_de_espera");
+	$manager->updateClient("registro_agenda", $update_client, $id);
+	
+	$manager->deleteClient("agendarapida", $id);
 
+	// header("Location: ../principal.php?client_add_success");
+	header("Location: ../principal.php?acao=pages/lista_de_espera");
 }
 
 ?>

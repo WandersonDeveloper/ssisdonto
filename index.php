@@ -107,7 +107,7 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
         </div>
 
     </div>
-    <p class="d-flex justify-content-center" style="font-size: 10px; "> Desenvolvido por By Wanderson Felipe de Oliveira </p>
+    <p class="d-flex justify-content-center" style="font-size: 10px; "> Desenvolvido por By-<a href="https://www.instagram.com/wanderson._felipe/">  Wanderson Felipe de Oliveira </a></p>
 </section>
 
 <!-- login end -->
@@ -135,6 +135,9 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
   </div>
   <div class="modal-body">
     <form method="post">
+
+    
+
         <div class="form-group">
             <label class="text-dark" for="exampleInputEmail1">Nome</label>
             <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome e Sobrenome" required>

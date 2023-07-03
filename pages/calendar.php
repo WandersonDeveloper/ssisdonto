@@ -74,7 +74,7 @@
 
                        <option value="A vista">A vista</option>
                        <option value="Cartão">Cartão</option>
-                       <option value="Corsórcio">Consórcio</option>
+                       <option value="Consórcio">Consórcio</option>
                        <option value="Financiamento">Financiamento</option>
 
                        </select>
@@ -132,19 +132,27 @@
         <script src='js/interaction/main.min.js'></script>
         <script src='js/daygrid/main.min.js'></script>
         <script src='js/core/locales/pt-br.js'></script>
-        <script>
+        
+        
+        
 
-            document.addEventListener('DOMContentLoaded', function () {
-                var calendarEl = document.getElementById('calendar');
+        <script >
+              
 
-                var calendar = new FullCalendar.Calendar(calendarEl, {
+                
+
+                document.addEventListener('DOMContentLoaded', function () {
+
                   
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                           
                     locale: 'pt-br',
                     plugins: ['interaction', 'dayGrid'],
                     editable: false,
                     eventLimit:true,
                     eventClick: function(events) {
-                      
+                     
                       const swalWithBootstrapButtons = Swal.mixin({
                               customClass: {
                                 confirmButton: 'btn btn-warning ml-5',
@@ -160,9 +168,13 @@
                              imageUrl: 'dist/img/vista-lateral-da-motocicletapequeno.png'
                                                             
                              
-              
+      
+                          
                             })
                               
+                              
+                             
+   
 
                            
                           },

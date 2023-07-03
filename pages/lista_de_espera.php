@@ -62,6 +62,7 @@
          			<td <?php echo $estiloDisplay;?> ><?php echo $client['Emplacada']; ?></td>
           			<td <?php echo $estiloDisplay;?> ><?php echo $client['Tipo_venda']; ?></td>
 					<td <?php echo $estiloDisplay;?> ><?php echo $client['Vendedor']; ?></td>
+				
 					
 					<td>
 						
@@ -72,6 +73,10 @@
 							<div class="col-md-12">
 
 							  <input type="text" hidden  name="Status_entrega" value="SIM" class="form-control" placeholder="Status_entrega">
+							</div>
+							
+							<div class="col-md-12">
+							  <input type="text" hidden  name="Excluido" value="Nao" class="form-control" >
 							</div>
 
 							<button class="btn btn-success"  onclick="return confirm('Deseja confirmar a entrega?');" ><i class="fa fa-thumbs-up"></i> </bu>
@@ -96,7 +101,10 @@
 						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
 							
 							<input type="hidden" name="id" value="<?=$client['ID']?>">
-
+							
+							<div class="col-md-12">
+							  <input type="text" hidden  name="Excluido" value="SIM" class="form-control" >
+							</div>
 							<button class="btn btn-danger btn-xd">
 								<i class="fa fa-trash"></i>
 							</button>
