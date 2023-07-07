@@ -24,7 +24,7 @@ if($total_usuarios == 0){
 //ESTRUTURA DO MENU
 $item1 = 'pages/calendar';
 $item2 = 'pages/lista_de_espera';
-$item3 = 'pages/financeiro';
+$item3 = 'pages/Montagem';
 
 
 //CLASSE PARA OS ITENS ATIVOS

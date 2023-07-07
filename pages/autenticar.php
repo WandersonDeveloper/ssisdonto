@@ -33,12 +33,13 @@ if($linhas > 0){
 		exit();
 	}
 
-	if($_SESSION['nivel_usuario'] == 'montador'){
-		echo "<script language='javascript'>window.location='../principal.php'; </script>";
+	if($_SESSION['nivel_usuario'] == 'Montador'){
+		echo "<script language='javascript'>window.location='Montagem.php'; </script>";
+		
 		exit();
 	}
 
-	if($_SESSION['nivel_usuario'] == 'Balconista'){
+	if($_SESSION['nivel_usuario'] == 'Cnh'){
 		echo "<script language='javascript'>window.location='../principal.php'; </script>";
 		exit();
 	}

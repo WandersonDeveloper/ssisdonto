@@ -68,7 +68,11 @@ $id = $_POST['id'];
 			<?php endforeach; ?>
 
 			<button class="btn btn-warning btn-lg">
-				
+
+			<div class="col-md-12">
+				<input type="text" hidden  name="Status_cor" value="#FFA500" class="form-control" >
+			</div>
+
 				Alterar dados <i class="fa fa-user-edit"></i>
 
 			</button><br><br>

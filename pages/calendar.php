@@ -40,7 +40,7 @@
                   </div>
                   <br>
 
-                  
+
                   <div class="col-md-12">
                   <h6 > Tem emplacamento ?<h6>
 
@@ -58,9 +58,9 @@
               </div>
 
                 <div class="col-md-12">
-                    <input id="new-event" name="start" type="datetime-local" class="form-control" placeholder="Dt do Agendamento"required>
+                    <input id="new-event" name="start" type="date" class="form-control" placeholder="Dt do Agendamento"required>
                 </div>
-                  <br>
+                <br> 
 
                   <!-- <div class="col-md-12">
                     <input id="new-event" name="start" type="time" class="form-control" placeholder="Hora do Agendamento"required>
@@ -151,6 +151,7 @@
                     plugins: ['interaction', 'dayGrid'],
                     editable: false,
                     eventLimit:true,
+                    
                     eventClick: function(events) {
                      
                       const swalWithBootstrapButtons = Swal.mixin({
@@ -171,13 +172,7 @@
       
                           
                             })
-                              
-                              
-                             
-   
-
-                           
-                          },
+                      },
                     events: 'model/list_eventos.php',
                      extraParams: function () {
                         return {

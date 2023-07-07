@@ -14,8 +14,8 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <meta name="description" content="Lanches BH, Lanches em Venda Nova, Comprar Sanduíche Venda Nova ">
-    <meta name="author" content="Hugo Vasconcelos">
+   
+    
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">

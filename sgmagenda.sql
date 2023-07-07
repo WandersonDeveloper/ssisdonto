@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/06/2023 às 01:25
+-- Tempo de geração: 05/07/2023 às 04:37
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -38,15 +38,34 @@ CREATE TABLE `agendarapida` (
   `Tipo_venda` varchar(55) NOT NULL,
   `Responsavel` varchar(55) NOT NULL,
   `Vendedor` varchar(55) NOT NULL,
-  `Status_entrega` varchar(10) NOT NULL
+  `Status_entrega` varchar(10) NOT NULL,
+  `Excluido` varchar(55) NOT NULL,
+  `DT_alteracao` datetime NOT NULL,
+  `Ativada` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Despejando dados para a tabela `agendarapida`
+-- Estrutura para tabela `registro_agenda`
 --
 
-INSERT INTO `agendarapida` (`ID`, `Nome`, `Modelo`, `Cor`, `Chassi`, `Emplacada`, `start`, `Tipo_venda`, `Responsavel`, `Vendedor`, `Status_entrega`) VALUES
-(53, 'Wanderson Felipe de Oliveira ', 'Bizsdd', 'vermelha', '00000000000000000', 'SIM', '2023-05-31 19:52:00', 'Cartão', 'Wanderson Admin', 'Marcos', 'SIM');
+CREATE TABLE `registro_agenda` (
+  `ID` int(11) NOT NULL,
+  `Nome` varchar(55) NOT NULL,
+  `Modelo` varchar(55) NOT NULL,
+  `Cor` varchar(55) NOT NULL,
+  `Chassi` varchar(55) NOT NULL,
+  `Emplacada` varchar(55) NOT NULL,
+  `start` datetime(1) NOT NULL,
+  `Tipo_venda` varchar(55) NOT NULL,
+  `Responsavel` varchar(55) NOT NULL,
+  `Vendedor` varchar(55) NOT NULL,
+  `Status_entrega` varchar(55) NOT NULL,
+  `Excluido` varchar(55) NOT NULL,
+  `DT_alteracao` datetime NOT NULL,
+  `Ativada` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -70,8 +89,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `Nome`, `Email`, `Cpf`, `Senha`, `Dicasenha`, `Nivel`, `Usuario`) VALUES
-(19, 'Wanderson Admin', 'admin@admin.com', '00000000000', '123456', 0, 'Admin', 'admin'),
-(20, 'felipe ', 'felipe@felipe.com', '00000000000', '123', 123, 'montador', 'felipe');
+(1, 'luana', 'luana@luana.com', '00000000000', '123456', 123456, 'Montador', 'luana'),
+(2, 'Wanderson', 'Wandersonunimed@gmail.com ', '06268174127', '123456', 123456, 'Admin', 'Wanderson Felipe De Oliviera');
 
 --
 -- Índices para tabelas despejadas
@@ -81,6 +100,12 @@ INSERT INTO `user` (`id`, `Nome`, `Email`, `Cpf`, `Senha`, `Dicasenha`, `Nivel`,
 -- Índices de tabela `agendarapida`
 --
 ALTER TABLE `agendarapida`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices de tabela `registro_agenda`
+--
+ALTER TABLE `registro_agenda`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -97,13 +122,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `agendarapida`
 --
 ALTER TABLE `agendarapida`
-  MODIFY `ID` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `ID` int(55) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `registro_agenda`
+--
+ALTER TABLE `registro_agenda`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

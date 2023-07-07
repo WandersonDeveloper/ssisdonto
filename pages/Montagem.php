@@ -1,6 +1,6 @@
 <!-- modal para cadastrar novo cliente  -->
-
-<?php @session_start(); ?>
+<?php @include_once '../dependencias.php';
+ @session_start(); ?>
 
 <div class="card col-md-12">
 	<div  class="table-responsive">
@@ -24,28 +24,14 @@
   <br>
 <?php foreach($manager->listClient("agendarapida") as $client): 
 	
-	if ($client['Status_entrega']  == "SIM") {
+	if ($client['Ativada']  == "SIM") {
 		// Caso seja igual, a linha será ocultada
 		$estiloDisplay = "hidden" ;
 	} else {
-
 		// Caso contrário, a linha será exibida normalmente
 		$estiloDisplay = "";
-	}
-		if ($client['Ativada']  == "") {
-			// Caso seja igual, a linha será ocultada
-			$estiloDisplay = "hidden" ;
-		} else {
-			// Caso contrário, a linha será exibida normalmente
-			$estiloDisplay = "";
-			
+		
 	} ?>
-	
-
-
-
-				
-
 
 				
 				<tr <?php echo $estiloDisplay;?>>
@@ -76,69 +62,48 @@
 						
 
 						<td <?php echo $estiloDisplay;?> >
-						
-						<form method="POST" action="controller/insert_status.php" >
-
+							<!-- verifica se usuario é admin ou montador para direcionar para caminho correto   -->
 						<?php 	
 						if($_SESSION["nivel_usuario"] == 'Admin' ){
 
 						echo '<form method="POST" action="controller/insert_montagem.php" >';
 						}
 
-						if($_SESSION["nivel_usuario"] == 'Cnh' ){
-							$oucuta_info = "hidden";
-						
+						if($_SESSION["nivel_usuario"] == 'Montador' ){
+
+						echo '<form method="POST" action="../controller/insert_montagem.php" >';
 							}
 								?>
+				
 							<input type="text" hidden name="id" value="<?=$client['ID']?>">
+
 							<!-- Para registrar ação do usuario caso altere informações como excluir o dados databela -->
 							<div class="col-md-12">
 							  <input hidden type="datetime"   name="DT_alteracao"  value="<?php  date_default_timezone_set('America/Cuiaba');$date = date('Y-m-d H:i');echo $date; ?>" class="form-control">
 							</div>
-							<!-- Para registrar a entrega na base caso motocicleta seja entregue -->
+							<!-- cor de status  -->
 							<div class="col-md-12">
-
-							  <input type="text" hidden  name="Status_entrega" value="SIM" class="form-control" placeholder="Status_entrega">
+							  <input type="text" hidden  name="Status_cor" value="#b7d5ac" class="form-control" >
 							</div>
+
 							<!-- Para add informação que dado da tabela não foi excluido dela add a informação NÂO para fins de selects de relatorios  -->
 							<div class="col-md-12">
 							  <input type="text" hidden  name="Excluido" value="NAO" class="form-control" >
 							</div>
+                            <!-- se a motocicleta for não for ativada   -->
+                            <div class="col-md-12">
+							  <input type="text" hidden  name="Ativada" value="SIM" class="form-control" >
+							</div>
 
-							<button style="<?php echo $oucuta_info ?>;" class="btn btn-success"  onclick="return confirm('Deseja confirmar a entrega?');" ><i class="fa fa-thumbs-up"></i> </bu>
+							<button class="btn btn-success"  onclick="return confirm('Deseja finalizar o chamado para esta Motocicleta?');" ><i class="fa fa-thumbs-up"></i> </bu>
 
 					   </form>
 
 					</td >
 					<td <?php echo $estiloDisplay;?> >
-					<!-- Btn Alterar -->
-						<form method="POST" action="view/page_update.php">
-							
-							<input type="hidden" name="id" value="<?=$client['ID']?>">
-
-							<button class="btn btn-warning btn-xd">
-								<i class="fa fa-user-edit"></i>
-							</button>
-
-						</form>
-					</td>
-					<td <?php echo $estiloDisplay;?> >
-						<!-- btn excluir -->
-						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
-							
-							<input type="hidden" name="id" value="<?=$client['ID']?>">
-							<!-- Para identificar alterção do usuario colocando log data para registrar  -->
-							<div class="col-md-12">
-
-							  <input hidden type="datetime"   name="DT_alteracao"  value="<?php  date_default_timezone_set('America/Cuiaba');$date = date('Y-m-d H:i');echo $date; ?>" class="form-control">
-							</div>
-							<!-- para registrar que o dado foi excluido pelo usuario  -->
-							<div class="col-md-12">
-							  <input type="text" hidden  name="Excluido" value="SIM" class="form-control" >
-							</div>
-							<button class="btn btn-danger btn-xd">
-								<i class="fa fa-trash"></i>
-							</button>
+				
+					
+					
 
 						</form>
 				</td>
@@ -157,6 +122,7 @@
 								rows[i].classList.add('hide');
 							}
 							}
+		
 						</Script>
 				</tr>
 				<?php endforeach; ?>
