@@ -39,18 +39,22 @@ if($linhas > 0){
 		exit();
 	}
 
-	if($_SESSION['nivel_usuario'] == 'Cnh'){
+	if($_SESSION['nivel_usuario'] == 'CNH' ){
 		echo "<script language='javascript'>window.location='../principal.php'; </script>";
 		exit();
-	}
+	
+	
+}
+if($_SESSION['nivel_usuario'] == 'Seguros' ){
+	echo "<script language='javascript'>window.location='../principal.php'; </script>";
+	exit();
 
-	
-	
+
 }else{
 	echo "<script language='javascript'>window.alert('Dados Incorretos!!'); </script>";
 	echo "<script language='javascript'>window.location='../index.php'; </script>";
 	
 }
-
+}
 
  ?>

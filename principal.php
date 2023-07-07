@@ -3,9 +3,12 @@
 
 include_once 'dependencias.php';
 
-if($_SESSION['nivel_usuario'] != 'Admin'){
+if ($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'CNH'&&  $_SESSION['nivel_usuario'] != 'Seguros')  {
+   
     echo "<script language='javascript'>window.location='index.php'; </script>";
 }
+
+
 
 
 
@@ -58,8 +61,19 @@ if(@$_GET['acao'] == $item1){
                     <a href="principal.php?acao=<?php echo $item2 ?>"
                         class="nav-link <?php echo $item2ativo ?>">Lista de espera</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="principal.php?acao=<?php echo $item3 ?>"
+
+                <?php if($_SESSION["nivel_usuario"] == 'CNH'  ){
+							$oculta_btn = "hidden";
+                }  if($_SESSION["nivel_usuario"] == 'Seguros'  ){
+                    $oculta_btn = "hidden";
+						
+							}if($_SESSION["nivel_usuario"] == 'Admin' ){
+								$oculta_btn = "";
+							
+							}?>
+
+                <li   class="nav-item d-none d-sm-inline-block" <?php echo" $oculta_btn "; ?>>
+                    <a <?php echo" $oculta_btn "; ?>  href="principal.php?acao=<?php echo $item3 ?>"
                         class="nav-link <?php echo $item3ativo ?>">Motos para Ativar</a>
                 </li>
             </ul>
@@ -121,15 +135,15 @@ if(@$_GET['acao'] == $item1){
 
 
                 </div>
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
+                <div  class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div <?php echo" $oculta_btn "; ?> class="image">
                         <iconify-icon icon="healthicons:finance-dept-outline" style="color: white; margin-top: 5px;" width="32"
                             height="32"></iconify-icon>
 
                     </div>
 
-                    <a class="nav-item  d-sm-inline-block">
-                        <a href="principal.php?acao=<?php echo $item3 ?>"
+                    <a  <?php echo" $oculta_btn "; ?> class="nav-item  d-sm-inline-block">
+                        <a <?php echo" $oculta_btn "; ?> href="principal.php?acao=<?php echo $item3 ?>"
                             class="nav-link <?php echo $item3ativo ?>">Motos para Ativar</a>
                         </a>
 

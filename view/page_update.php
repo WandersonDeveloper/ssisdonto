@@ -10,7 +10,7 @@ $id = $_POST['id'];
 ?>
 <br><br>
 <h2 class="text-center">
-	ALTERAR DADOS DA MOTOCICLETA  <i class="fa fa-motorcycle"></i>
+	AGENDE DADOS DA MOTOCICLETA P/ Entrega <i class="fa fa-motorcycle"></i>
 </h2><hr>
 
 <form method="POST" action="../controller/update_client.php">

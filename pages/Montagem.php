@@ -1,6 +1,12 @@
 <!-- modal para cadastrar novo cliente  -->
-<?php @include_once '../dependencias.php';
- @session_start(); ?>
+<?php 
+@include_once '../dependencias.php';
+@session_start(); 
+// verifica se o usuario logado tem acesso a pagina MOntagem se não admin ou usuario montagem não acessa Pagina
+if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'){
+    echo "<script language='javascript'>window.location='index.php'; </script>";
+}
+?>
 
 <div class="card col-md-12">
 	<div  class="table-responsive">
@@ -31,11 +37,8 @@
 		// Caso contrário, a linha será exibida normalmente
 		$estiloDisplay = "";
 		
-	} ?>
-
-				
+	} ?>	
 				<tr <?php echo $estiloDisplay;?>>
-
         
           <td hidden><?php 
           echo $client['ID']; ?></td>

@@ -41,13 +41,7 @@
 			
 	} ?>
 	
-
-
-
-				
-
-
-				
+	
 				<tr <?php echo $estiloDisplay;?>>
 
         
@@ -76,19 +70,27 @@
 						
 
 						<td <?php echo $estiloDisplay;?> >
-						
+
 						<form method="POST" action="controller/insert_status.php" >
 
 						<?php 	
+						// verifica se o usuario é admin ou seguros para poder liberar acesso ao BTN confirmar entrega  CNH não tem liberação
 						if($_SESSION["nivel_usuario"] == 'Admin' ){
 
 						echo '<form method="POST" action="controller/insert_montagem.php" >';
 						}
 
-						if($_SESSION["nivel_usuario"] == 'Cnh' ){
-							$oucuta_info = "hidden";
+						if($_SESSION["nivel_usuario"] == 'CNH' ){
+							$oculta_btn = "hidden";
 						
-							}
+							}if($_SESSION["nivel_usuario"] == 'Admin' ){
+								$oculta_btn = "";
+							
+								}
+								if($_SESSION["nivel_usuario"] == 'Seguros' ){
+									$oculta_btn = "";
+								
+									}
 								?>
 							<input type="text" hidden name="id" value="<?=$client['ID']?>">
 							<!-- Para registrar ação do usuario caso altere informações como excluir o dados databela -->
@@ -104,8 +106,9 @@
 							<div class="col-md-12">
 							  <input type="text" hidden  name="Excluido" value="NAO" class="form-control" >
 							</div>
+							
 
-							<button style="<?php echo $oucuta_info ?>;" class="btn btn-success"  onclick="return confirm('Deseja confirmar a entrega?');" ><i class="fa fa-thumbs-up"></i> </bu>
+							<button <?php echo" $oculta_btn "; ?> class="btn btn-success"  onclick="return confirm('Deseja confirmar a entrega?');" ><i class="fa fa-thumbs-up"></i> </bu>
 
 					   </form>
 
@@ -122,6 +125,7 @@
 
 						</form>
 					</td>
+					
 					<td <?php echo $estiloDisplay;?> >
 						<!-- btn excluir -->
 						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
