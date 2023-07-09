@@ -28,7 +28,45 @@
                   </div>
                   <br>
                   <div class="col-md-12">
-                    <input id="Modelo" name="Modelo" type="text"  class="form-control" placeholder="Modelo" required>
+                    <!-- <input id="Modelo" name="Modelo" type="text"  class="form-control" placeholder="Modelo" required> -->
+                      
+                    <select class="form-control" name="Modelo" id="" >
+                      <option   disabled selected hidden>  Selecione um modelo                                                                 </option>
+                      <option type="text"name="Modelo" value="CG 160 Start ">                           CG 160 Start                                     </option>
+                      <option type="text"name="Modelo" value="CG 160 Fan   ">                           CG 160 Fan                                       </option>
+                      <option type="text"name="Modelo" value="CG 160 Titan ">                           CG 160 Titan                                     </option>
+                      <option type="text"name="Modelo" value="CG 160 Cargo">                            CG 160 Cargo                                     </option>
+                      <option type="text"name="Modelo" value=" Pop 110i">                               Pop 110i                                         </option>
+                      <option type="text"name="Modelo"value=" Biz 110i">                               Biz 110i                                          </option>
+                      <option type="text"name="Modelo"value="Biz 125">                                 Biz 125                                           </option>
+                      <option type="text"name="Modelo"value="  Elite 125 ">                            Elite 125                                         </option>
+                      <option type="text"name="Modelo"value="PCX ">                                    PCX                                               </option>
+                      <option type="text"name="Modelo"value="Forza 350">                               Forza 350                                         </option>
+                      <option type="text"name="Modelo"value="Honda ADV">                               Honda ADV                                         </option>
+                      <option type="text"name="Modelo"value="X-ADV">                                   X-ADV                                             </option>
+                      <option type="text"name="Modelo"value="CB 300F Twister">                         CB 300F Twister                                   </option>
+                      <option type="text"name="Modelo"value="CB 500F">                                 CB 500F                                           </option>
+                      <option type="text"name="Modelo"value="CB 650R ">                                CB 650R                                           </option>
+                      <option type="text"name="Modelo"value=" CB 1000R">                               CB 1000R                                          </option>
+                      <option type="text"name="Modelo"value=" CB 1000R Black Edition">                 CB 1000R Black Edition                            </option>
+                      <option type="text"name="Modelo"value="NXR 160 Bros ESDD  ">                     NXR 160 Bros ESDD                                 </option>
+                      <option type="text"name="Modelo"value=" XRE 190 ">                               XRE 190                                           </option>
+                      <option type="text"name="Modelo"value="XRE 300">                                 XRE 300                                           </option>
+                      <option type="text"name="Modelo"value="CB 500X ">                                CB 500X                                           </option>
+                      <option type="text"name="Modelo"value="NC 750X">                                 NC 750X                                           </option>
+                      <option type="text"name="Modelo"value="CRF 1100L Africa Twin ">                  CRF 1100L Africa Twin                             </option>
+                      <option type="text"name="Modelo"value="CRF 1100L Africa Twin Adventure Sports">  CRF 1100L Africa Twin Adventure Sports            </option>
+                      <option type="text"name="Modelo"value="X-ADV">                                   X-ADV                                              </option>
+                      <option type="text"name="Modelo"value="CRF 250F">                                CRF 250F                                           </option>
+                      <option type="text"name="Modelo"value="Linha CRF 250">                           Linha CRF 250                                      </option>
+                      <option type="text"name="Modelo"value="Linha CRF 450">                           Linha CRF 450                                      </option>
+                      <option type="text"name="Modelo"value="TRX 420 FourTrax">                        TRX 420 FourTrax                                   </option>
+                      <option type="text"name="Modelo"value="CBR 650R">                                CBR 650R                                           </option>
+                      <option type="text"name="Modelo"value="CBR 1000RR-R FIREBLADE SP ">              CBR 1000RR-R FIREBLADE SP                          </option>
+
+
+                      </select>
+
                   </div>
                   <br>
                   <div class="col-md-12">
@@ -58,7 +96,7 @@
               </div>
 
                 <div class="col-md-12">
-                    <input id="new-event" name="start" type="date" class="form-control" placeholder="Dt do Agendamento"required>
+                    <input id="new-event" name="start" type="datetime-local" class="form-control" placeholder="Dt do Agendamento"required>
                 </div>
                 <br> 
 
@@ -86,7 +124,29 @@
                     </div>
                     <br>
                     <div class="col-md-12">
-                      <input id="new-event"name="Vendedor" type="text"  class="form-control" placeholder="Vendedor" required>
+                      <!-- <input id="new-event"name="Vendedor" type="text"  class="form-control" placeholder="Vendedor" required> -->
+                     
+                      <select class="form-control" name="Vendedor" id="" >
+                      <option value="*"> selecione um Vendedor                                                                     </option>
+                       <option value="*">  * Não há Vendedor *                                                  </option>
+                       <option value="Alan Carlos Vieira de Jesus">       Alan Carlos Vieira de Jesus           </option>
+                       <option value="Bruna Santos ">                     Bruna Santos                          </option>
+                       <option value="Claudinei Macedo Coelho">           Claudinei Macedo Coelho               </option>
+                       <option value="Delcio Gomes da Silva">             Delcio Gomes da Silva                 </option>
+                       <option value="Eduardo Kovalhuk de Macedo">        Eduardo Kovalhuk de Macedo            </option>
+                       <option value="Guimaraes de Almeida Gonçalves">    Guimaraes de Almeida Gonçalves        </option>
+                       <option value="Guilherme Sampaio Haut">            Guilherme Sampaio Haut                </option>
+                       <option value="Jonathan Paulo Moura ">             Jonathan Paulo Moura                  </option>
+                       <option value="Marcos	Eugenio de Oliveira">       Marcos	Eugenio de Oliveira           </option>
+                       <option value="Paulo Braido">                      Paulo Braido                          </option>
+                       <option value="Luiz Pereira Rezende">              Luiz Pereira Rezende                  </option>
+                       <option value="Ronaldo Adriano Oliveira Coutinho"> Ronaldo Adriano Oliveira Coutinho     </option>
+                       <option value="Saulo Xavier de Oliveira Silva">    Saulo Xavier de Oliveira Silva        </option>
+                       <option value="Vilmar Silva do Carmo">             Vilmar Silva do Carmo                 </option>
+
+                       </select>
+                    
+                    
                     </div>
                     <br>
                 

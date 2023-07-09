@@ -65,7 +65,7 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 						
 
 						<td <?php echo $estiloDisplay;?> >
-							<!-- verifica se usuario é admin ou montador para direcionar para caminho correto   -->
+							<!-- verifica se usuario é admin ou montador para direcionar para caminho correto  -->
 						<?php 	
 						if($_SESSION["nivel_usuario"] == 'Admin' ){
 
