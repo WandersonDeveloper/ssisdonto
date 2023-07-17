@@ -34,27 +34,29 @@ if($linhas > 0){
 	}
 
 	if($_SESSION['nivel_usuario'] == 'Montador'){
-		echo "<script language='javascript'>window.location='Montagem.php'; </script>";
-		
+		echo "<script language='javascript'>window.location='Montagem.php'; </script>";		
 		exit();
 	}
 
 	if($_SESSION['nivel_usuario'] == 'CNH' ){
 		echo "<script language='javascript'>window.location='../principal.php'; </script>";
-		exit();
-	
-	
-}
+		exit();	
+	}
 if($_SESSION['nivel_usuario'] == 'Seguros' ){
-	echo "<script language='javascript'>window.location='../principal.php'; </script>";
-	exit();
+		echo "<script language='javascript'>window.location='../principal.php'; </script>";
+		exit();
+	}
+
+		}	else{
+		echo "<script language='javascript'>window.alert('Seu usuaria e senha pode estar em incorreto!!'); </script>";
+		echo "<script language='javascript'>window.location='../index.php'; </script>";
+		
 
 
-}else{
-	echo "<script language='javascript'>window.alert('Dados Incorretos!!'); </script>";
-	echo "<script language='javascript'>window.location='../index.php'; </script>";
+		}
 	
-}
-}
+	
+
+
 
  ?>

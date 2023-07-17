@@ -20,7 +20,7 @@
               <div class="btn-group" style="width: 100%; ">
 
               </div>
-
+              
             <form method="POST" action="controller/insert_client.php">
                   <!-- campo para add paciente no dia -->
                   <div class="col-md-12">
@@ -114,7 +114,7 @@
                        <option value="Cartão">Cartão</option>
                        <option value="Consórcio">Consórcio</option>
                        <option value="Financiamento">Financiamento</option>
-
+                     
                        </select>
                     </div>
                    
