@@ -3,9 +3,18 @@
 @include_once '../dependencias.php';
 @session_start(); 
 // verifica se o usuario logado tem acesso a pagina MOntagem se não admin ou usuario montagem não acessa Pagina
-if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'){
+if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'&& $_SESSION['nivel_usuario'] != 'Seguros'){
     echo "<script language='javascript'>window.location='index.php'; </script>";
 }
+
+ if($_SESSION["nivel_usuario"] == 'Seguros'  ){
+	$oculta_btn = "hidden";
+}
+	if($_SESSION["nivel_usuario"] == 'Montador'  ){
+		$oculta_btn = "";}
+			
+		
+
 ?>
 
 <div class="card col-md-12">
@@ -21,7 +30,7 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
           			<th>Emplacada</th>
 					<th>Venda</th>
           			<th>Vendedor</th>		
-					<th colspan="2">Ações</th>
+					<th <?php echo "$oculta_btn";?> colspan="2">Ações</th>
 					
 					
 				</tr>
@@ -64,7 +73,7 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 					<td>
 						
 
-						<td <?php echo $estiloDisplay;?> >
+						<td  <?php echo "$oculta_btn";  echo $estiloDisplay;?> >
 							<!-- verifica se usuario é admin ou montador para direcionar para caminho correto  -->
 						<?php 	
 						if($_SESSION["nivel_usuario"] == 'Admin' ){
@@ -76,6 +85,10 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 
 						echo '<form method="POST" action="../controller/insert_montagem.php" >';
 							}
+						if($_SESSION["nivel_usuario"] == 'Seguros' ){
+
+								echo '<form method="POST" action="../controller/insert_montagem.php" >';
+									}
 								?>
 				
 							<input type="text" hidden name="id" value="<?=$client['ID']?>">
@@ -98,7 +111,8 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 							  <input type="text" hidden  name="Ativada" value="SIM" class="form-control" >
 							</div>
 
-							<button class="btn btn-success"  onclick="return confirm('Deseja finalizar o chamado para esta Motocicleta?');" ><i class="fa fa-thumbs-up"></i> </bu>
+							
+							<button class="btn btn-success" <?php echo" $oculta_btn "; ?>  onclick="return confirm('Deseja finalizar o chamado para esta Motocicleta?');" ><i class="fa fa-thumbs-up"></i> </bu>
 
 					   </form>
 

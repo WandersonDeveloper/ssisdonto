@@ -119,11 +119,14 @@
 							
 							<input type="hidden" name="id" value="<?=$client['ID']?>">
 
-							<button class="btn btn-warning btn-xd">
+							<button class="btn btn-warning btn-xd" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 								<i class="fa fa-user-edit"></i>
 							</button>
 
 						</form>
+								
+						
+										
 					</td>
 					
 					<td <?php echo $estiloDisplay;?> >

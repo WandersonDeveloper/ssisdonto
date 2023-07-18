@@ -134,6 +134,7 @@
                        <option value="Claudinei Macedo Coelho">           Claudinei Macedo Coelho               </option>
                        <option value="Delcio Gomes da Silva">             Delcio Gomes da Silva                 </option>
                        <option value="Eduardo Kovalhuk de Macedo">        Eduardo Kovalhuk de Macedo            </option>
+                       <option value="Estevao Francisco Barros Soares ">  Estevão Francisco Barros Soares           </option>
                        <option value="Guimaraes de Almeida Gonçalves">    Guimaraes de Almeida Gonçalves        </option>
                        <option value="Guilherme Sampaio Haut">            Guilherme Sampaio Haut                </option>
                        <option value="Jonathan Paulo Moura ">             Jonathan Paulo Moura                  </option>

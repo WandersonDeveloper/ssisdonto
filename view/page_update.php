@@ -1,3 +1,4 @@
+
 <?php 
 include_once '../model/Conexao.class.php';
 include_once '../model/Manager.class.php';
@@ -8,6 +9,8 @@ $manager = new Manager();
 $id = $_POST['id'];
 
 ?>
+
+
 <br><br>
 <h2 class="text-center">
 	EDITAR DADOS  <i class="fa fa-motorcycle"></i>
@@ -30,7 +33,48 @@ $id = $_POST['id'];
 
 		<div class="col-md-4">
 		Modelo: <i class="fa fa-motorcycle"></i>
-			<input class="form-control" type="text" name="Modelo" required value="<?=$client_info['Modelo']?>"><br>
+		<div class="col-md-12">
+                    <!-- <input id="Modelo" name="Modelo" type="text"  class="form-control" placeholder="Modelo" required> -->
+                      
+                    <select class="form-control" name="Modelo" id="" >
+					<option onselectstart=”return false” style="background-color: olivedrab; color: white;" value="<?=$client_info['Modelo']?>"> <b style="background-color: red;"> <?=$client_info['Modelo']?>  </b>   </option>
+					<option disabled value="*">      							 					            </option>
+                      <option type="text"name="Modelo" value="CG 160 Start ">                           CG 160 Start                                     </option>
+                      <option type="text"name="Modelo" value="CG 160 Fan   ">                           CG 160 Fan                                       </option>
+                      <option type="text"name="Modelo" value="CG 160 Titan ">                           CG 160 Titan                                     </option>
+                      <option type="text"name="Modelo" value="CG 160 Cargo">                            CG 160 Cargo                                     </option>
+                      <option type="text"name="Modelo" value=" Pop 110i">                               Pop 110i                                         </option>
+                      <option type="text"name="Modelo"value=" Biz 110i">                               Biz 110i                                          </option>
+                      <option type="text"name="Modelo"value="Biz 125">                                 Biz 125                                           </option>
+                      <option type="text"name="Modelo"value="  Elite 125 ">                            Elite 125                                         </option>
+                      <option type="text"name="Modelo"value="PCX ">                                    PCX                                               </option>
+                      <option type="text"name="Modelo"value="Forza 350">                               Forza 350                                         </option>
+                      <option type="text"name="Modelo"value="Honda ADV">                               Honda ADV                                         </option>
+                      <option type="text"name="Modelo"value="X-ADV">                                   X-ADV                                             </option>
+                      <option type="text"name="Modelo"value="CB 300F Twister">                         CB 300F Twister                                   </option>
+                      <option type="text"name="Modelo"value="CB 500F">                                 CB 500F                                           </option>
+                      <option type="text"name="Modelo"value="CB 650R ">                                CB 650R                                           </option>
+                      <option type="text"name="Modelo"value=" CB 1000R">                               CB 1000R                                          </option>
+                      <option type="text"name="Modelo"value=" CB 1000R Black Edition">                 CB 1000R Black Edition                            </option>
+                      <option type="text"name="Modelo"value="NXR 160 Bros ESDD  ">                     NXR 160 Bros ESDD                                 </option>
+                      <option type="text"name="Modelo"value=" XRE 190 ">                               XRE 190                                           </option>
+                      <option type="text"name="Modelo"value="XRE 300">                                 XRE 300                                           </option>
+                      <option type="text"name="Modelo"value="CB 500X ">                                CB 500X                                           </option>
+                      <option type="text"name="Modelo"value="NC 750X">                                 NC 750X                                           </option>
+                      <option type="text"name="Modelo"value="CRF 1100L Africa Twin ">                  CRF 1100L Africa Twin                             </option>
+                      <option type="text"name="Modelo"value="CRF 1100L Africa Twin Adventure Sports">  CRF 1100L Africa Twin Adventure Sports            </option>
+                      <option type="text"name="Modelo"value="X-ADV">                                   X-ADV                                              </option>
+                      <option type="text"name="Modelo"value="CRF 250F">                                CRF 250F                                           </option>
+                      <option type="text"name="Modelo"value="Linha CRF 250">                           Linha CRF 250                                      </option>
+                      <option type="text"name="Modelo"value="Linha CRF 450">                           Linha CRF 450                                      </option>
+                      <option type="text"name="Modelo"value="TRX 420 FourTrax">                        TRX 420 FourTrax                                   </option>
+                      <option type="text"name="Modelo"value="CBR 650R">                                CBR 650R                                           </option>
+                      <option type="text"name="Modelo"value="CBR 1000RR-R FIREBLADE SP ">              CBR 1000RR-R FIREBLADE SP                          </option>
+
+
+                      </select>
+
+                  </div>
 		</div>
 
 		<div class="col-md-4">
@@ -134,3 +178,4 @@ $id = $_POST['id'];
 		
 	});
 </script>
+

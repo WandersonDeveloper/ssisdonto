@@ -63,9 +63,11 @@ if(@$_GET['acao'] == $item1){
                 </li>
 
                 <?php if($_SESSION["nivel_usuario"] == 'CNH'  ){
+                    
 							$oculta_btn = "hidden";
+
                 }  if($_SESSION["nivel_usuario"] == 'Seguros'  ){
-                    $oculta_btn = "hidden";
+                    $oculta_btn = "";
 						
 							}if($_SESSION["nivel_usuario"] == 'Admin' ){
 								$oculta_btn = "";
