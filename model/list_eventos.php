@@ -1,5 +1,5 @@
 <?php
-// Metodo responsável por fazer a conxão com o vanvo e apresentar  o evento 
+// Metodo responsável por fazer a conxão com o quando e apresentar  o evento 
 
 include_once '../model/Conexao.class.php';
 include_once '../model/Manager.class.php';

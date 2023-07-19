@@ -3,7 +3,14 @@
 include_once '../model/Conexao.class.php';
 include_once '../model/Manager.class.php';
 include_once '../dependencias.php'; 
+@session_start();
+// Verifica se a sessão específica existe e se o usuário não está logado
+if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
+    // Redireciona o usuário para a página de login
+	echo "<script language='javascript'>window.location='../index.php'; </script>";
 
+    exit(); // Encerra o processamento
+}
 $manager = new Manager();
 
 $id = $_POST['id'];
@@ -128,6 +135,7 @@ $id = $_POST['id'];
 
                        <option name="Emplacada" <?=$client_info['Emplacada']?>value=" SIM">SIM </option>
                        <option name="Emplacada"<?=$client_info['Emplacada']?> value="NAO"> NÂO</option>
+                       
 
                     </select>
         </div>
@@ -149,7 +157,9 @@ $id = $_POST['id'];
 			<button class="btn btn-warning btn-lg">
 
 			<div class="col-md-12">
-				<input type="text" hidden  name="Status_cor" value="#FFA500" class="form-control" >
+				<input type="text" hidden  name="Status_cor" value="#409140" class="form-control" >
+                <input type="text" hidden  name="status_entrega_final" value="OK" class="form-control" >
+                <input type="text" hidden  name="resposavel_alteracao" value="<?php echo $_SESSION['nome_usuario']; ?>" class="form-control" >
 			</div>
 
 				Alterar dados <i class="fa fa-user-edit"></i>

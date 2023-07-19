@@ -1,9 +1,15 @@
 <?php @session_start();
+// Verifica se a sessão específica existe e se o usuário não está logado
+if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
+    // Redireciona o usuário para a página de login
+	echo "<script language='javascript'>window.location='../index.php'; </script>";
 
+    exit(); // Encerra o processamento
+}
 
 include_once 'dependencias.php';
 
-if ($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'CNH'&&  $_SESSION['nivel_usuario'] != 'Seguros')  {
+if ($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'CNH' &&  $_SESSION['nivel_usuario'] != 'Seguros'  )  {
    
     echo "<script language='javascript'>window.location='index.php'; </script>";
 }
@@ -43,7 +49,26 @@ if(@$_GET['acao'] == $item1){
  ?>
 
 </head>
+<?php if($_SESSION["nivel_usuario"] == 'CNH'  ){
+                    
+		$oculta_btn = "hidden";
+           $oculta_btn2 = "";                 
 
+         }  if($_SESSION["nivel_usuario"] == 'Seguros'  ){
+             $oculta_btn = "";
+                $oculta_btn2 = "";                                                      
+        }if($_SESSION["nivel_usuario"] == 'Admin' ){
+                $oculta_btn = "";
+                $oculta_btn2 = "";
+                                
+		}if($_SESSION["nivel_usuario"] == 'Vendedor' ){
+                $oculta_btn = "";
+                $oculta_btn2 = "hidden";
+            }					
+						
+?>					
+
+                            
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -51,31 +76,21 @@ if(@$_GET['acao'] == $item1){
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                <li <?php echo $oculta_btn2  ?>class="nav-item">
+                    <a <?php echo $oculta_btn2  ?> class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item  d-none d-sm-inline-block">
+                <li <?php echo $oculta_btn2  ?> class="nav-item  d-none d-sm-inline-block">
                     <a href="principal.php?acao=<?php echo $item1 ?>" class="nav-link <?php echo $item1ativo ?>">Agenda</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="principal.php?acao=<?php echo $item2 ?>"
+                <li <?php echo $oculta_btn2  ?> class="nav-item d-none d-sm-inline-block">
+                    <a <?php echo $oculta_btn2  ?> href="principal.php?acao=<?php echo $item2 ?>"
                         class="nav-link <?php echo $item2ativo ?>">Lista de espera</a>
                 </li>
 
-                <?php if($_SESSION["nivel_usuario"] == 'CNH'  ){
-                    
-							$oculta_btn = "hidden";
-
-                }  if($_SESSION["nivel_usuario"] == 'Seguros'  ){
-                    $oculta_btn = "";
-						
-							}if($_SESSION["nivel_usuario"] == 'Admin' ){
-								$oculta_btn = "";
-							
-							}?>
+                
 
                 <li   class="nav-item d-none d-sm-inline-block" <?php echo" $oculta_btn "; ?>>
-                    <a <?php echo" $oculta_btn "; ?>  href="principal.php?acao=<?php echo $item3 ?>"
+                    <a <?php echo" $oculta_btn $ "; ?>  href="principal.php?acao=<?php echo $item3 ?>"
                         class="nav-link <?php echo $item3ativo ?>">Motos para Ativar</a>
                 </li>
             </ul>
@@ -102,12 +117,13 @@ if(@$_GET['acao'] == $item1){
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
+                       <H6 style="color: white;">Seja bem vindoª </H6>
+                    
                     <div class="info">
                         <a href="#" class="d-block"><?php echo $_SESSION['nome_usuario'] ?> </a>   
-                        <a href="view/logout.php" style="margin-left: 100px; margin-bottom: -10px; " ><img src="./dist/img/ligar.png" style="width: 12px;height: 12px; " alt=""> Sair</a>
+                        <a href="view/logout.php"  ><img src="./dist/img/ligar.png" style="width: 12px;height: 12px; " alt=""> Sair</a>
                     </div>
+                </div>
                 </div>
 
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -124,29 +140,29 @@ if(@$_GET['acao'] == $item1){
 
                 </div>
 
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div <?php echo $oculta_btn2 ?> class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <iconify-icon class="align-content-center" icon="bi:person-bounding-box" style="color: white;  margin-top: 5px;"
+                        <iconify-icon <?php echo $oculta_btn2  ?> class="align-content-center" icon="bi:person-bounding-box" style="color: white;  margin-top: 5px;"
                             width="32" height="32"></iconify-icon>
                     </div>
 
-                    <a class="nav-item  d-sm-inline-block">
-                        <a href="principal.php?acao=<?php echo $item2 ?>"
+                    <a <?php echo $oculta_btn2  ?> class="nav-item  d-sm-inline-block">
+                        <a <?php echo $oculta_btn2  ?> href="principal.php?acao=<?php echo $item2 ?>"
                             class="nav-link <?php echo $item2ativo ?>">Lista de espera</a>
                         </a>
 
 
                 </div>
                 <div  class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div <?php echo" $oculta_btn "; ?> class="image">
+                    <div <?php echo"   $oculta_btn "; ?> class="image">
                         <iconify-icon icon="healthicons:finance-dept-outline" style="color: white; margin-top: 5px;" width="32"
                             height="32"></iconify-icon>
 
                     </div>
 
-                    <a  <?php echo" $oculta_btn "; ?> class="nav-item  d-sm-inline-block">
-                        <a <?php echo" $oculta_btn "; ?> href="principal.php?acao=<?php echo $item3 ?>"
-                            class="nav-link <?php echo $item3ativo ?>">Motos para Ativar</a>
+                    <a  <?php echo"   $oculta_btn "; ?> class="nav-item  d-sm-inline-block">
+                        <a <?php echo"  $oculta_btn "; ?> href="principal.php?acao=<?php echo $item3 ?>"
+                            class="nav-link <?php  echo $item3ativo ?>">Motos para Ativar</a>
                         </a>
 
 

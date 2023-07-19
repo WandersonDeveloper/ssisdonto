@@ -2,8 +2,10 @@
 <?php 
 @include_once '../dependencias.php';
 @session_start(); 
+
+
 // verifica se o usuario logado tem acesso a pagina MOntagem se não admin ou usuario montagem não acessa Pagina
-if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'&& $_SESSION['nivel_usuario'] != 'Seguros'){
+if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'&& $_SESSION['nivel_usuario'] != 'Seguros' ){
     echo "<script language='javascript'>window.location='index.php'; </script>";
 }
 
@@ -12,10 +14,26 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 }
 	if($_SESSION["nivel_usuario"] == 'Montador'  ){
 		$oculta_btn = "";}
+
+		if($_SESSION["nivel_usuario"] == 'Vendedor'  ){
+			$oculta_btn = "hidden";}
+				
 			
-		
+		if($_SESSION["nivel_usuario"] == 'Montador'  ){
+	
+			echo "
+			<nav class='navbar bg-dark border-bottom border-bottom-dark' data-bs-theme='dark'>
+				<b style='color:white;'>Seja Bem-Vindoª " . $_SESSION["nome_usuario"] . ".</b> 
+				<div class='container-fluid'>
+					<a href='../view/logout.php' class='navbar-brand'>Sair</a>
+				</div>
+			</nav>";
+
+}
+
 
 ?>
+
 
 <div class="card col-md-12">
 	<div  class="table-responsive">
@@ -105,6 +123,10 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 							<!-- Para add informação que dado da tabela não foi excluido dela add a informação NÂO para fins de selects de relatorios  -->
 							<div class="col-md-12">
 							  <input type="text" hidden  name="Excluido" value="NAO" class="form-control" >
+							</div>
+							<div>
+							<input type="text" hidden  name="Status_cor" value="#ffe600" class="form-control" >
+							<input type="text" hidden  name="status_entrega_final" value="Ativada" class="form-control" >
 							</div>
                             <!-- se a motocicleta for não for ativada   -->
                             <div class="col-md-12">

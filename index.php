@@ -1,3 +1,4 @@
+
 <?php 
 
 include_once("model/Conexao.class.php");
@@ -107,7 +108,7 @@ if(isset($_POST['email2']) and $_POST['email2'] != ''){
         </div>
 
     </div>
-    <p class="d-flex justify-content-center" style="font-size: 10px; "> Desenvolvido por By-<a href="https://www.instagram.com/wanderson._felipe/">  Wanderson Felipe de Oliveira </a></p>
+    <p class="d-flex justify-content-center" style="font-size: 10px; "> Desenvolvido por By-<a href="https://www.linkedin.com/in/wanderson-de-felipe-oliveira-43475115a/">  Wanderson Felipe de Oliveira </a></p>
 </section>
 
 <!-- login end -->

@@ -1,10 +1,22 @@
 <!-- modal para cadastrar novo cliente  -->
 
-<?php @session_start(); ?>
+<?php @session_start(); 
+
+// Verifica se a sessão específica existe e se o usuário não está logado
+if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
+    // Redireciona o usuário para a página de login
+	echo "<script language='javascript'>window.location='../index.php'; </script>";
+
+    exit(); // Encerra o processamento
+}
+
+
+
+?>
 
 <div class="card col-md-12">
 	<div  class="table-responsive">
-		<table id="lista" class="table table-hover">
+		<table id="lista" class="table table-striped">
 			<thead class="thead">
 				<tr >  
           			<th>Data entrega</th>

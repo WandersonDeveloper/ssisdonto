@@ -24,6 +24,8 @@ class Manager extends Conexao {
 		return $statement->fetchAll();
 	} 
 
+	
+
 // classe responsável por deletar dados da base 
 	public function deleteClient($table, $id) {
 		$pdo = parent::get_instance();

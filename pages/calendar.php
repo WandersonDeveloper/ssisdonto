@@ -150,10 +150,15 @@
                     
                     </div>
                     <br>
-                
+
+                    
 
                   <br>
+                      <div>
+                    <input type="text" hidden  name="status_entrega_final" value="Foiparaativacao" class="form-control" >
+                    </div>
 
+                    
                     <div class="btnbtn-primary col-md-12">
                     <button class="btn btn-primary col-md-12">Salvar</button>
                   </div>
@@ -212,6 +217,7 @@
                     plugins: ['interaction', 'dayGrid'],
                     editable: false,
                     eventLimit:true,
+                    eventBackgroundColor: 'red',
                     
                     eventClick: function(events) {
                      
