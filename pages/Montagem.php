@@ -2,21 +2,34 @@
 <?php 
 @include_once '../dependencias.php';
 @session_start(); 
+// Verifica se a sessão específica existe e se o usuário não está logado
+if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
+    // Redireciona o usuário para a página de login
+	echo "<script language='javascript'>window.location='../index.php'; </script>";
 
+    exit(); // Encerra o processamento
+}
 
 // verifica se o usuario logado tem acesso a pagina MOntagem se não admin ou usuario montagem não acessa Pagina
 if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'&& $_SESSION['nivel_usuario'] != 'Seguros' ){
     echo "<script language='javascript'>window.location='index.php'; </script>";
 }
-
+if($_SESSION["nivel_usuario"] == 'Admin'  ){
+	$oculta_btn = "";
+	$oculta_btnalterar = "";
+}
  if($_SESSION["nivel_usuario"] == 'Seguros'  ){
 	$oculta_btn = "hidden";
+	$oculta_btnalterar = "";
 }
 	if($_SESSION["nivel_usuario"] == 'Montador'  ){
-		$oculta_btn = "";}
+		$oculta_btn = "";
+		$oculta_btnalterar = "hidden";}
 
 		if($_SESSION["nivel_usuario"] == 'Vendedor'  ){
-			$oculta_btn = "hidden";}
+			$oculta_btn = "hidden";
+			$oculta_btnalterar = "hidden";}
+
 				
 			
 		if($_SESSION["nivel_usuario"] == 'Montador'  ){
@@ -87,8 +100,7 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
           			<td <?php echo $estiloDisplay;?> ><?php echo $client['Tipo_venda']; ?></td>
 					<td <?php echo $estiloDisplay;?> ><?php echo $client['Vendedor']; ?></td>
 				
-					
-					<td>
+				
 						
 
 						<td  <?php echo "$oculta_btn";  echo $estiloDisplay;?> >
@@ -125,20 +137,40 @@ if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Monta
 							  <input type="text" hidden  name="Excluido" value="NAO" class="form-control" >
 							</div>
 							<div>
+								<!-- add a cor na tabela status cor -->
 							<input type="text" hidden  name="Status_cor" value="#ffe600" class="form-control" >
+							<!-- add na tabela statusentregafinal  informação ativada  -->
 							<input type="text" hidden  name="status_entrega_final" value="Ativada" class="form-control" >
 							</div>
                             <!-- se a motocicleta for não for ativada   -->
                             <div class="col-md-12">
 							  <input type="text" hidden  name="Ativada" value="SIM" class="form-control" >
 							</div>
-
-							
-							<button class="btn btn-success" <?php echo" $oculta_btn "; ?>  onclick="return confirm('Deseja finalizar o chamado para esta Motocicleta?');" ><i class="fa fa-thumbs-up"></i> </bu>
-
+							<button class="btn btn-success" <?php echo" $oculta_btn "; ?>  onclick="return confirm('Deseja finalizar o chamado para esta Motocicleta?');" ><i class="fa fa-thumbs-up"></i> </button>
 					   </form>
 
 					</td >
+
+					<td
+					
+					<?php echo $estiloDisplay;?> <?php echo $oculta_btnalterar;?> >
+						<!-- Btn Alterar -->
+						
+							<form method="POST" action="view/page_update.php">
+								
+								<input type="hidden" name="id" value="<?=$client['ID']?>">
+	
+								<button class="btn btn-warning btn-xd" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+									<i class="fa fa-user-edit"></i>
+								</button>
+	
+							</form>
+									
+							
+											
+						</td>
+
+
 					<td <?php echo $estiloDisplay;?> >
 				
 					
