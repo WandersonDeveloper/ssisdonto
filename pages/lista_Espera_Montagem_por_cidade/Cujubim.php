@@ -9,7 +9,6 @@ if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
 
     exit(); // Encerra o processamento
 }
-
 // verifica se o usuario logado tem acesso a pagina MOntagem se não admin ou usuario montagem não acessa Pagina
 if($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'Montador'&& $_SESSION['nivel_usuario'] != 'Seguros' ){
     echo "<script language='javascript'>window.location='index.php'; </script>";
@@ -30,13 +29,8 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 			$oculta_btn = "hidden";
 			$oculta_btnalterar = "hidden";}
 
-				
-	
 ?>
-
-
-
-
+<Center><H4>Motocicletas para Ativar em Cujubim</H4></Center>
 
 <div class="card col-md-12">
 	<div  class="table-responsive">
@@ -58,19 +52,26 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 			</thead>
 			<tbody>
   <br>
-<?php foreach($manager->listClient("agendarapida") as $client): 
+<?php foreach($manager->Cujubim("agendarapida") as $client): 
 
-	
-	if ($client['Ativada']  == "SIM") {
+if ($client['Cidade'] == "Ariquemes" || $client['Cidade'] == "MonteNegro" ) {
+    // Caso seja igual, a linha será ocultada
+    $cidade = "hidden";
+} else {
+    // Caso contrário, a linha será exibida normalmente
+    $cidade = "";
+}
+
+	if($client['Ativada']  == "SIM" ){
 		// Caso seja igual, a linha será ocultada
-		$estiloDisplay = "hidden" ;
+		$estiloDisplay = "hidden";
 	} else {
 		// Caso contrário, a linha será exibida normalmente
 		$estiloDisplay = "";
 		
 	} ?>	
-				<tr <?php echo $estiloDisplay;?>>
-        
+				<tr <?php echo $estiloDisplay;?><?php echo $cidade;?>>
+      
           <td hidden><?php 
           echo $client['ID']; ?></td>
         <td <?php echo $estiloDisplay;?> > 
@@ -83,18 +84,18 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
           
   		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		</td>
-        			<td <?php echo $estiloDisplay;?> ><?php echo $client['Nome']; ?></td>
-					<td <?php echo $estiloDisplay;?> ><?php echo $client['Modelo']; ?></td>
-         		    <td <?php echo $estiloDisplay;?> ><?php echo $client['Cor']; ?></td>
-					<td <?php echo $estiloDisplay;?> ><?php echo $client['Chassi']; ?></td>
-         			<td <?php echo $estiloDisplay;?> ><?php echo $client['Emplacada']; ?></td>
-          			<td <?php echo $estiloDisplay;?> ><?php echo $client['Tipo_venda']; ?></td>
-					<td <?php echo $estiloDisplay;?> ><?php echo $client['Vendedor']; ?></td>
+        			<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Nome']; ?></td>
+					<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Modelo']; ?></td>
+         		    <td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Cor']; ?></td>
+					<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Chassi']; ?></td>
+         			<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Emplacada']; ?></td>
+          			<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Tipo_venda']; ?></td>
+					<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>><?php echo $client['Vendedor']; ?></td>
 				
 				
 						
 
-						<td  <?php echo "$oculta_btn";  echo $estiloDisplay;?> >
+						<td  <?php echo "$oculta_btn";  echo $estiloDisplay;?> <?php echo $cidade;?> >
 							<!-- verifica se usuario é admin ou montador para direcionar para caminho correto  -->
 						<?php 	
 						if($_SESSION["nivel_usuario"] == 'Admin' ){
@@ -144,7 +145,7 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 
 					<td
 					
-					<?php echo $estiloDisplay;?> <?php echo $oculta_btnalterar;?> >
+					<?php echo $estiloDisplay;?><?php echo $cidade;?> <?php echo $oculta_btnalterar;?> >
 
 						<!-- Btn Alterar -->
 						
@@ -162,7 +163,7 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 											
 						</td>
 
-						<td <?php echo $estiloDisplay;?> <?php echo $oculta_btnalterar;?> >
+						<td <?php echo $estiloDisplay;?> <?php echo $cidade;?><?php echo $oculta_btnalterar;?> >
 						<!-- btn excluir -->
 						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Você tem certeza que deseja excluir ?');">
 							
@@ -184,7 +185,7 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 				</td>
 
 
-					<td <?php echo $estiloDisplay;?> >
+					<td <?php echo $estiloDisplay;?> <?php echo $cidade;?>>
 				
 					
 					

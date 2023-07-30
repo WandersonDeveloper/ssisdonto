@@ -25,7 +25,7 @@ if(isset($id) && !empty($id)) {
 	header("Location: ../principal.php?acao=pages/Montagem");
 	}
 	if($_SESSION["nivel_usuario"] == 'Montador' ){
-		header("Location: ../pages/Montagem.php");
+		header("Location: ../painelmontagem.php");
 		}
 }
 

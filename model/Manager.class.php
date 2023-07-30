@@ -24,6 +24,34 @@ class Manager extends Conexao {
 		return $statement->fetchAll();
 	} 
 
+	// classe responsável por listar o dados da base  por cidade e em ordem de data 
+	public function Ariquemes($table) {
+		$pdo = parent::get_instance();
+		$sql = "SELECT * FROM agendarapida WHERE Cidade = 'Ariquemes' ORDER BY start";
+		$statement = $pdo->query($sql);
+		$statement->execute();
+
+		return $statement->fetchAll();
+	} 
+	// classe responsável por listar o dados da base  por cidade e em ordem de data 
+	public function Cujubim($table) {
+		$pdo = parent::get_instance();
+		$sql = "SELECT * FROM agendarapida WHERE Cidade = 'Cujubim' ORDER BY start";
+		$statement = $pdo->query($sql);
+		$statement->execute();
+
+		return $statement->fetchAll();
+	} 
+	// classe responsável por listar o dados da base  por cidade e em ordem de data 
+	public function Monte_Negro($table) {
+		$pdo = parent::get_instance();
+		$sql = "SELECT * FROM agendarapida WHERE Cidade = 'MonteNegro' ORDER BY start";
+		$statement = $pdo->query($sql);
+		$statement->execute();
+
+		return $statement->fetchAll();
+	} 
+
 	
 
 // classe responsável por deletar dados da base 

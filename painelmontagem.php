@@ -14,60 +14,37 @@ if ($_SESSION['nivel_usuario'] != 'Admin' && $_SESSION['nivel_usuario'] != 'CNH'
     echo "<script language='javascript'>window.location='index.php'; </script>";
 }
 
-
-
-
-
 //VERIFICAR SE EXISTE UM USUÁRIO ADMINISTRADOR, CASO NÃO EXISTA, CRIAR.
 $senha = '123';
-$res_usuarios = $conn->query("SELECT * from user where Nivel = 'Admin'");
+$res_usuarios = $conn->query("SELECT * from user where Nivel = 'Nontador'");
 $dados_usuarios = $res_usuarios->fetchAll(PDO::FETCH_ASSOC);
 $total_usuarios = count($dados_usuarios);
 
 if($total_usuarios == 0){
   $res_insert = $conn->query("INSERT INTO `user`(`id`, `Nome`, `Email`, `Cpf`, `Senha`, `Dicasenha`, `Nivel`, `Usuario`) 
-  VALUES ('','Administrador','admin@admin.com','00000000000','123456','padrao','Admin','admin')");
+  VALUES ('','Montador','montador@montador.com','00000000000','123456','padrao','Montador','Montador')");
 }
 
-
 //ESTRUTURA DO MENU
-$item1 = 'pages/calendar';
-$item2 = 'pages/lista_de_espera';
-$item3 = 'pages/lista_Espera_Montagem_por_cidade/Montagem';
-
-$pgAriquemes = 'pages/lista_Espera_Cidades/Ariquemes';
-$pgCujubim = 'pages/lista_Espera_Cidades/Cujubim';
-$pgMonteNegro = 'pages/lista_Espera_Cidades/MonteNegro';
+$item1 = 'pages/lista_Espera_Montagem_por_cidade/Ariquemes';
 
 $pgAriquemesmontagem1 = 'pages/lista_Espera_Montagem_por_cidade/Ariquemes';
 $pgAriquemesmontagem2 = 'pages/lista_Espera_Montagem_por_cidade/Cujubim';
 $pgAriquemesmontagem3 = 'pages/lista_Espera_Montagem_por_cidade/MonteNegro';
 
-
-
 //CLASSE PARA OS ITENS ATIVOS
 if(@$_GET['acao'] == $item1){
           $item1ativo = 'active';
-        }else if(@$_GET['acao'] == $item2){
-          $item2ativo = 'active';
-        }else if(@$_GET['acao'] == $item3){
-          $item3ativo = 'active';
-        }else if(@$_GET['acao'] == $pgAriquemes){
-            $item3ativo = 'active';
-          }else if(@$_GET['acao'] == $pgCujubim){
-            $item3ativo = 'active';
-          }else if(@$_GET['acao'] == $pgMonteNegro){
-            $item3ativo = 'active';
+
           }else if(@$_GET['acao'] == $pgAriquemesmontagem1){
             $item3ativo = 'active';
           }else if(@$_GET['acao'] == $pgAriquemesmontagem2){
             $item3ativo = 'active';
           }else if(@$_GET['acao'] == $pgAriquemesmontagem3){
             $item3ativo = 'active';
-          }
-
-        
+          }     
  ?>
+
 
 </head>
 <?php if($_SESSION["nivel_usuario"] == 'CNH'  ){
@@ -77,7 +54,8 @@ if(@$_GET['acao'] == $item1){
 
          }  if($_SESSION["nivel_usuario"] == 'Seguros'  ){
              $oculta_btn = "";
-                $oculta_btn2 = "";                                                      
+                $oculta_btn2 = "";       
+
         }if($_SESSION["nivel_usuario"] == 'Admin' ){
                 $oculta_btn = "";
                 $oculta_btn2 = "";
@@ -85,9 +63,10 @@ if(@$_GET['acao'] == $item1){
 		}if($_SESSION["nivel_usuario"] == 'Vendedor' ){
                 $oculta_btn = "";
                 $oculta_btn2 = "hidden";
+
             }if($_SESSION["nivel_usuario"] == 'Montador' ){
                 $oculta_btn = "";
-                $oculta_btn2 = "";}					
+                $oculta_btn2 = "hidden";}					
 						
 ?>					
 
@@ -100,36 +79,16 @@ if(@$_GET['acao'] == $item1){
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li <?php echo $oculta_btn2  ?>class="nav-item">
-                    <a <?php echo $oculta_btn2  ?> class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a  class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li <?php echo $oculta_btn2  ?> class="nav-item  d-none d-sm-inline-block">
-                    <a href="principal.php?acao=<?php echo $item1 ?>" class="nav-link <?php echo $item1ativo ?>">Agenda</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                <li <?php echo $oculta_btn2  ?> class="nav-item d-none d-sm-inline-block">
-                    <a class="nav-link dropdown-toggle <?php echo $item2ativo ?>" data-bs-toggle="dropdown"  role="button" aria-expanded="false" <?php echo $oculta_btn2  ?> >Lista de espera</a>
-   
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="principal.php?acao=<?php echo $pgAriquemes ?>">Ariquemes</a></li>
-                        <li><a class="dropdown-item" href="principal.php?acao=<?php echo $pgCujubim ?>">Cujubim</a></li>
-                        <li><a class="dropdown-item" href="principal.php?acao=<?php echo $pgMonteNegro ?>">Monte Negro</a></li>
-                        
-                        </ul>
-                    </li>
-
-
-                </li>
-
-        </li>
-
+            
                 <li   class="nav-item d-none d-sm-inline-block" <?php echo" $oculta_btn "; ?>>
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" <?php echo" $oculta_btn $ "; ?>  href="principal.php?acao=<?php echo $item3 ?>" <?php echo @$item3ativo ?> >Motos para Ativar</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-expanded="false"  href="painelmontagem.php?acao=<?php echo $item3 ?>" <?php echo @$item3ativo ?> >Motos para Ativar</a>
 
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="principal.php?acao=<?php echo $pgAriquemesmontagem1 ?>">Ariquemes</a></li>
-                        <li><a class="dropdown-item" href="principal.php?acao=<?php echo $pgAriquemesmontagem2 ?>">Cujubim</a></li>
-                        <li><a class="dropdown-item" href="principal.php?acao=<?php echo $pgAriquemesmontagem3 ?>">Monte Negro</a></li>
+                        <li><a class="dropdown-item" href="painelmontagem.php?acao=<?php echo $pgAriquemesmontagem1 ?>">Ariquemes</a></li>
+                        <li><a class="dropdown-item" href="painelmontagem.php?acao=<?php echo $pgAriquemesmontagem2 ?>">Cujubim</a></li>
+                        <li><a class="dropdown-item" href="painelmontagem.php?acao=<?php echo $pgAriquemesmontagem3 ?>">Monte Negro</a></li>
                         
                         </ul>
                     </li>
@@ -137,7 +96,10 @@ if(@$_GET['acao'] == $item1){
             </ul>
 
             <!-- Right navbar links -->
-            
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Notifications Dropdown Menu -->
+            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -164,33 +126,9 @@ if(@$_GET['acao'] == $item1){
                 </div>
                 </div>
 
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <iconify-icon class="align-content-center" icon="bi:calendar-date" style="color: white; "
-                            width="32" height="32" ></iconify-icon>
-                    </div>
+              
 
-                    <a class="nav-item d-sm-inline-block " >
-                        <a href="principal.php?acao=<?php echo $item1 ?>"
-                            class="nav-link <?php echo $item1ativo ?>">Agendar</a>
-                        </a>
-
-
-                </div>
-
-                <div <?php echo $oculta_btn2 ?> class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <iconify-icon <?php echo $oculta_btn2  ?> class="align-content-center" icon="bi:person-bounding-box" style="color: white;  margin-top: 5px;"
-                            width="32" height="32"></iconify-icon>
-                    </div>
-
-                    <a <?php echo $oculta_btn2  ?> class="nav-item  d-sm-inline-block">
-                        <a <?php echo $oculta_btn2  ?> href="principal.php?acao=<?php echo $item2 ?>"
-                            class="nav-link <?php echo $item2ativo ?>">Lista de espera Geral</a>
-                        </a>
-
-
-                </div>
+               
                 <div  class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div <?php echo"   $oculta_btn "; ?> class="image">
                         <iconify-icon icon="healthicons:finance-dept-outline" style="color: white; margin-top: 5px;" width="32"
@@ -198,9 +136,9 @@ if(@$_GET['acao'] == $item1){
 
                     </div>
 
-                    <a  <?php echo"   $oculta_btn "; ?> class="nav-item  d-sm-inline-block">
-                        <a <?php echo"  $oculta_btn "; ?> href="principal.php?acao=<?php echo $pgAriquemesmontagem1 ?>"
-                            class="nav-link <?php  echo $pgAriquemesmontagem1 ?>">Motos para Ativar Geral</a>
+                    <a   class="nav-item  d-sm-inline-block">
+                        <a <?php echo"  $oculta_btn "; ?> href="painelmontagem.php?acao=<?php echo $item3 ?>"
+                            class="nav-link <?php  echo $item3ativo ?>">Motos para Ativar Geral</a>
                         </a>
 
 
@@ -224,17 +162,6 @@ if(@$_GET['acao'] == $item1){
                 <?php 
         if(@$_GET['acao'] == $item1){
           include_once($item1.'.php');
-        }else if(@$_GET['acao'] == $item2){
-          include_once($item2.'.php');
-        }else if(@$_GET['acao'] == $pgAriquemes){
-            include_once($pgAriquemes.'.php');
-          }else if(@$_GET['acao'] == $pgCujubim){
-            include_once($pgCujubim.'.php');
-          }else if(@$_GET['acao'] == $pgMonteNegro){
-            include_once($pgMonteNegro.'.php');
-          }        
-        else if(@$_GET['acao'] == $item3){
-          include_once($item3 .'.php');
         }else if(@$_GET['acao'] == $pgAriquemesmontagem1){
             include_once($pgAriquemesmontagem1 .'.php');
           }else if(@$_GET['acao'] == $pgAriquemesmontagem2){
@@ -242,7 +169,6 @@ if(@$_GET['acao'] == $item1){
           }else if(@$_GET['acao'] == $pgAriquemesmontagem3){
             include_once($pgAriquemesmontagem3 .'.php');
           }
-
         else{
           include_once($item1.'.php');
         }

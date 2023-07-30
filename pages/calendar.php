@@ -151,7 +151,18 @@
                     </div>
                     <br>
 
-                    
+                    <div class="col-md-12">
+                    <!-- <input id="Modelo" name="Modelo" type="text"  class="form-control" placeholder="Modelo" required> -->
+                      
+                  <select class="form-control" name="Cidade" id="" >
+                      <option   disabled selected hidden>  Selecione a loja                </option>
+                      <option type="text"name="Modelo" value="Ariquemes">   Ariquemes</option>
+                      <option type="text"name="Modelo" value="Cujubim">     Cujubim        </option>
+                      <option type="text"name="Modelo" value="MonteNegro">  Monte Negro    </option>
+                     
+                  </select>
+
+                  </div>
 
                   <br>
                       <div>

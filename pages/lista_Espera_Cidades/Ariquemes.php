@@ -12,7 +12,7 @@ if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
 
 
 ?>
-
+	<center><h4>  Ariqiemes</h4></center>	
 <div class="card col-md-12">
 	<div  class="table-responsive">
 		<table id="lista" class="table table-striped">
@@ -34,7 +34,7 @@ if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
 			<tbody>
   <br>
   
-<?php foreach($manager->listClient("agendarapida") as $client): 
+<?php foreach($manager->Ariquemes("agendarapida") as $client): 
 
 
 	

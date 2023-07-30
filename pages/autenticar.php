@@ -14,8 +14,6 @@ $senha = $_POST['pass'];
 $res = $conn->prepare("SELECT * from user where Email = :usuario and Senha = :senha   ");
 // $res = $conn->prepare("SELECT * from vendedores where Email = :usuario and Matricula = :senha ");
 
-    
-
 
 $res->bindValue(":usuario", $usuario);
 $res->bindValue(":senha", $senha);
@@ -39,7 +37,7 @@ if($linhas > 0){
 	}
 
 	if($_SESSION['nivel_usuario'] == 'Montador'){
-		echo "<script language='javascript'>window.location='Montagem.php'; </script>";		
+		echo "<script language='javascript'>window.location='../painelmontagem.php'; </script>";		
 		exit();
 	}
 
