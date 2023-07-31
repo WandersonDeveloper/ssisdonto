@@ -13,10 +13,9 @@ if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
 
 ?>
 	<center><h4>  Cujubim</h4></center>	
-<div class="card col-md-12">
-	<div  class="table-responsive">
-		<table id="lista" class="table table-striped">
-			<thead class="thead">
+	<div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
+    <table id="lista" class="table table-hover">
+        <thead class="thead" style="position: sticky; top: 0; background-color: #f9f9f9;">
 				<tr >  
           			<th>Data entrega</th>
 					<th>Nome</th>
@@ -192,7 +191,12 @@ if (!isset($_SESSION['session_start']) && !isset($_SESSION['nivel_usuario'])) {
 
 </form>
 
-
+<script>
+        // Função para atualizar a página a cada 5 minutos (300.000 milissegundos)
+        setTimeout(function() {
+            location.reload();
+        }, 300000);
+    </script>
 
 
 

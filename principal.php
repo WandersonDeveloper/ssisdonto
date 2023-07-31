@@ -153,16 +153,18 @@ if(@$_GET['acao'] == $item1){
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                       <H6 style="color: white;">Seja bem vindoª </H6>
-                    
-                    <div class="info">
-                        <a href="#" class="d-block"><?php echo $_SESSION['nome_usuario'] ?> </a>   
-                        <a href="view/logout.php"  ><img src="./dist/img/ligar.png" style="width: 12px;height: 12px; " alt=""> Sair</a>
+                <div  class="user-panel mt-4 pb-4 mb-4 d-flex">
+                    <div <?php echo"   $oculta_btn "; ?> class="image">
+                        <img src="dist/img/avatar5.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+
                     </div>
-                </div>
-                </div>
+                    <br>
+                    <a  style="margin-top:24%;" href="view/logout.php"  ><img src="./dist/img/ligar.png" style="width: 12px;height: 12px; " alt=""> Sair</a>
+                    <a   class="nav-item  d-sm-inline-block">
+                       <p> <H6 style="color: white;">Seja bem vindoª  <br><?php echo $_SESSION['nome_usuario'] ?> </H6 ></p>
+
+                 </div>
+                    
 
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">

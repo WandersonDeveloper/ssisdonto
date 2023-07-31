@@ -297,3 +297,10 @@
 		
 	});
 </script>
+
+<script>
+        // Função para atualizar a página a cada 5 minutos (300.000 milissegundos)
+        setTimeout(function() {
+            location.reload();
+        }, 300000);
+    </script>

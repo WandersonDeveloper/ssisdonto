@@ -37,10 +37,9 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 ?>
 <Center><H4>Motocicletas para Ativar em Monte Negro</H4></Center>
 
-<div class="card col-md-12">
-	<div  class="table-responsive">
-		<table id="lista" class="table table-hover">
-			<thead class="thead">
+<div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
+    <table id="lista" class="table table-hover">
+        <thead class="thead" style="position: sticky; top: 0; background-color: #f9f9f9;">
 				<tr >  
           			<th>Data entrega</th>
 					<th>Nome</th>
@@ -50,7 +49,9 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
           			<th>Emplacada</th>
 					<th>Venda</th>
           			<th>Vendedor</th>		
+					<th <?php echo "$oculta_btnalterar";?>></th>
 					<th <?php echo "$oculta_btn";?> colspan="2">Ações</th>
+					<th <?php echo "$oculta_btnalterar";?>></th>
 					
 					
 				</tr>
@@ -233,7 +234,12 @@ if ( $client['Ativada']  == "SIM") {
 
 </form>
 
-
+<script>
+        // Função para atualizar a página a cada 5 minutos (300.000 milissegundos)
+        setTimeout(function() {
+            location.reload();
+        }, 300000);
+    </script>
 
 
 

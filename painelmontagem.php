@@ -115,17 +115,18 @@ if(@$_GET['acao'] == $item1){
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                       <H6 style="color: white;">Seja bem vindoª </H6>
-                    
-                    <div class="info">
-                        <a href="#" class="d-block"><?php echo $_SESSION['nome_usuario'] ?> </a>   
-                        <a href="view/logout.php"  ><img src="./dist/img/ligar.png" style="width: 12px;height: 12px; " alt=""> Sair</a>
-                    </div>
-                </div>
-                </div>
+                <div  class="user-panel mt-4 pb-4 mb-4 d-flex">
+                    <div <?php echo"   $oculta_btn "; ?> class="image">
+                        <img src="dist/img/avatar5.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
 
+                    </div>
+                    <br>
+                    <a  style="margin-top:24%;" href="view/logout.php"  ><img src="./dist/img/ligar.png" style="width: 12px;height: 12px; " alt=""> Sair</a>
+                    <a   class="nav-item  d-sm-inline-block">
+                       <p> <H6 style="color: white;">Seja bem vindoª  <br><?php echo $_SESSION['nome_usuario'] ?> </H6 ></p>
+
+                 </div>
+                    
               
 
                
@@ -235,77 +236,17 @@ if(@$_GET['acao'] == $item1){
         </script>
 
 
-        <!-- Adicionando Javascript -->
-        <script>
-        function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value = ("");
-            document.getElementById('bairro').value = ("");
-            document.getElementById('cidade').value = ("");
-            document.getElementById('uf').value = ("");
-            document.getElementById('ibge').value = ("");
-        }
-
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value = (conteudo.logradouro);
-                document.getElementById('bairro').value = (conteudo.bairro);
-                document.getElementById('cidade').value = (conteudo.localidade);
-                document.getElementById('uf').value = (conteudo.uf);
-                document.getElementById('ibge').value = (conteudo.ibge);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
-            }
-        }
-
-        function pesquisacep(valor) {
-
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('uf').value = "...";
-                    document.getElementById('ibge').value = "...";
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
-        </script>
 
 </body>
 
 </html>
+
+<script>
+        // Função para atualizar a página a cada 5 minutos (300.000 milissegundos)
+        setTimeout(function() {
+            location.reload();
+        }, 300000);
+    </script>
+
+
+

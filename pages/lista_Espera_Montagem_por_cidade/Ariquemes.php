@@ -31,12 +31,11 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 			$oculta_btnalterar = "hidden";}
 
 ?>
-<Center><H4>Motocicletas para Ativar em Ariqiemes</H4></Center>
+<Center><H4>Motocicletas para Ativar em Ariquemes</H4></Center>
 
-<div class="card col-md-12">
-	<div  class="table-responsive">
-		<table id="lista" class="table table-hover">
-			<thead class="thead">
+<div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
+    <table id="lista" class="table table-hover">
+        <thead class="thead" style="position: sticky; top: 0; background-color: #f9f9f9;">
 				<tr >  
           			<th>Data entrega</th>
 					<th>Nome</th>
@@ -47,8 +46,9 @@ if($_SESSION["nivel_usuario"] == 'Admin'  ){
 					<th>Venda</th>
           			<th>Vendedor</th>
 					  		
+					<th <?php echo "$oculta_btnalterar";?>></th>
 					<th <?php echo "$oculta_btn";?> colspan="2">Ações</th>
-					
+					<th <?php echo "$oculta_btnalterar";?>></th>
 					
 				</tr>
 			</thead>
