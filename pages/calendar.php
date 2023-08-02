@@ -31,12 +31,12 @@
                     <!-- <input id="Modelo" name="Modelo" type="text"  class="form-control" placeholder="Modelo" required> -->
                       
                     <select class="form-control" name="Modelo" id="" >
-                      <option   disabled selected hidden>  Selecione um modelo                                                                 </option>
-                      <option type="text"name="Modelo" value="CG 160 Start ">                           CG 160 Start                                     </option>
-                      <option type="text"name="Modelo" value="CG 160 Fan   ">                           CG 160 Fan                                       </option>
-                      <option type="text"name="Modelo" value="CG 160 Titan ">                           CG 160 Titan                                     </option>
-                      <option type="text"name="Modelo" value="CG 160 Cargo">                            CG 160 Cargo                                     </option>
-                      <option type="text"name="Modelo" value=" Pop 110i">                               Pop 110i                                         </option>
+                      <option   disabled selected hidden>  Selecione um modelo                                                                           </option>
+                      <option type="text"name="Modelo" value="CG 160 Start ">                          CG 160 Start                                      </option>
+                      <option type="text"name="Modelo" value="CG 160 Fan   ">                          CG 160 Fan                                        </option>
+                      <option type="text"name="Modelo" value="CG 160 Titan ">                          CG 160 Titan                                      </option>
+                      <option type="text"name="Modelo" value="CG 160 Cargo">                           CG 160 Cargo                                      </option>
+                      <option type="text"name="Modelo" value=" Pop 110i">                              Pop 110i                                          </option>
                       <option type="text"name="Modelo"value=" Biz 110i">                               Biz 110i                                          </option>
                       <option type="text"name="Modelo"value="Biz 125">                                 Biz 125                                           </option>
                       <option type="text"name="Modelo"value="  Elite 125 ">                            Elite 125                                         </option>
@@ -56,13 +56,13 @@
                       <option type="text"name="Modelo"value="NC 750X">                                 NC 750X                                           </option>
                       <option type="text"name="Modelo"value="CRF 1100L Africa Twin ">                  CRF 1100L Africa Twin                             </option>
                       <option type="text"name="Modelo"value="CRF 1100L Africa Twin Adventure Sports">  CRF 1100L Africa Twin Adventure Sports            </option>
-                      <option type="text"name="Modelo"value="X-ADV">                                   X-ADV                                              </option>
-                      <option type="text"name="Modelo"value="CRF 250F">                                CRF 250F                                           </option>
-                      <option type="text"name="Modelo"value="Linha CRF 250">                           Linha CRF 250                                      </option>
-                      <option type="text"name="Modelo"value="Linha CRF 450">                           Linha CRF 450                                      </option>
-                      <option type="text"name="Modelo"value="TRX 420 FourTrax">                        TRX 420 FourTrax                                   </option>
-                      <option type="text"name="Modelo"value="CBR 650R">                                CBR 650R                                           </option>
-                      <option type="text"name="Modelo"value="CBR 1000RR-R FIREBLADE SP ">              CBR 1000RR-R FIREBLADE SP                          </option>
+                      <option type="text"name="Modelo"value="X-ADV">                                   X-ADV                                             </option>
+                      <option type="text"name="Modelo"value="CRF 250F">                                CRF 250F                                          </option>
+                      <option type="text"name="Modelo"value="Linha CRF 250">                           Linha CRF 250                                     </option>
+                      <option type="text"name="Modelo"value="Linha CRF 450">                           Linha CRF 450                                     </option>
+                      <option type="text"name="Modelo"value="TRX 420 FourTrax">                        TRX 420 FourTrax                                  </option>
+                      <option type="text"name="Modelo"value="CBR 650R">                                CBR 650R                                          </option>
+                      <option type="text"name="Modelo"value="CBR 1000RR-R FIREBLADE SP ">              CBR 1000RR-R FIREBLADE SP                         </option>
 
 
                       </select>
@@ -128,16 +128,17 @@
                      
                       <select class="form-control" name="Vendedor" id="" >
                       <option value="*"> selecione um Vendedor                                                                     </option>
-                       <option value="*">  * Não há Vendedor *                                                  </option>
+                       <option value="*">  * Não há Vendedor *                                                                     </option>
+                       <option value="vendedordefilial">  *Vendedor de Filial *                                                    </option>
                        <option value="Alan Carlos Vieira de Jesus">       Alan Carlos Vieira de Jesus           </option>
                        <option value="Bruna Santos ">                     Bruna Santos                          </option>
                        <option value="Claudinei Macedo Coelho">           Claudinei Macedo Coelho               </option>
                        <option value="Delcio Gomes da Silva">             Delcio Gomes da Silva                 </option>
                        <option value="Eduardo Kovalhuk de Macedo">        Eduardo Kovalhuk de Macedo            </option>
-                       <option value="Estevao Francisco Barros Soares ">  Estevão Francisco Barros Soares           </option>
                        <option value="Guimaraes de Almeida Gonçalves">    Guimaraes de Almeida Gonçalves        </option>
                        <option value="Guilherme Sampaio Haut">            Guilherme Sampaio Haut                </option>
                        <option value="Jonathan Paulo Moura ">             Jonathan Paulo Moura                  </option>
+                       <option value=" Joao Vitor Ferreira Marson">       João Vitor Ferreira Marson          </option>
                        <option value="Marcos	Eugenio de Oliveira">       Marcos	Eugenio de Oliveira           </option>
                        <option value="Paulo Braido">                      Paulo Braido                          </option>
                        <option value="Luiz Pereira Rezende">              Luiz Pereira Rezende                  </option>
