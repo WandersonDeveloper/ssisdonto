@@ -36,6 +36,8 @@ if($_SESSION['nivel_usuario']  != 'Vendedor' && $_SESSION['nivel_usuario'] != 'A
                     <thead class="thead">
                         <tr>
                             <th>Data e Hora da entrega</th>
+                            
+                            <th>Vendedor</th>
                             <th>Nome</th>
                             <th>Modelo</th>
 							<th>Chassi</th>
@@ -55,6 +57,7 @@ if($_SESSION['nivel_usuario']  != 'Vendedor' && $_SESSION['nivel_usuario'] != 'A
 								if (date('d/m/Y', $a) == date('d/m/Y')) {
 									echo "<tr>";
 									echo "<th scope='row'><b>" . $b . $h= date(' H:i:s ',$a) . "  </b></th>";
+                                    echo "<td> " . $client['Vendedor'] ."</td>";
 									echo "<td> " . $client['Nome'] ."</td>";
 									echo "<td> " . $client['Modelo'] ."</td>";
 									echo "<td> " . $client['Chassi'] ."</td>";
